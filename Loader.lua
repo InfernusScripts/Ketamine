@@ -1511,6 +1511,7 @@ do -- Set properties
 	objects["Instance138"]["BorderSizePixel"] = 0;
 	objects["Instance138"]["BackgroundColor3"] = Color3.new(0.294118, 0.294118, 0.294118);
 
+	objects["Instance139"]["Visible"] = false;
 	objects["Instance139"]["Parent"] = objects["Instance136"];
 	objects["Instance139"]["AnchorPoint"] = Vector2.new(1, 0.5);
 	objects["Instance139"]["BackgroundTransparency"] = 0.5;
@@ -2179,6 +2180,8 @@ local modules do
 					selection[3] = args
 					selection[4] = got
 					selection[5] = caller
+
+					print(selection[5])
 
 					codeBox.Text = sArgs
 				end)
@@ -4788,6 +4791,8 @@ local modules do
 					selection[3] = got
 					selection[4] = caller
 
+					print(selection[4])
+
 					codeBox.Text = sArgs
 				end)
 
@@ -5141,7 +5146,8 @@ local modules do
 
 	modules[objects["Instance5"]] = function()
 		local script = objects["Instance5"];
-		local TweenService = game:GetService("TweenService")
+		local tweenService = game:GetService("TweenService")
+		local http = game:GetService("HttpService")
 
 		local event = Instance.new("BindableEvent", script)
 		event.Name = "SettingChange"
@@ -5151,10 +5157,10 @@ local modules do
 		local settings = {
 			{"SEPARATOR", "UI Settings"},
 			{"Transparent", false, function(state)
-				TweenService:Create(script.Parent.Parent.Main, TweenInfo.new(1), {BackgroundTransparency = not state and 0 or metatable.Has_shadow and 0.2 or 0.05}):Play()
+				tweenService:Create(script.Parent.Parent.Main, TweenInfo.new(1), {BackgroundTransparency = not state and 0 or metatable.Has_shadow and 0.2 or 0.05}):Play()
 			end},
 			{"Rounded_corners", false, function(state)
-				TweenService:Create(script.Parent.Parent.Main.UICorner, TweenInfo.new(1), {CornerRadius = UDim.new(state and 0.025 or 0.01)}):Play()
+				tweenService:Create(script.Parent.Parent.Main.UICorner, TweenInfo.new(1), {CornerRadius = UDim.new(state and 0.025 or 0.01)}):Play()
 			end},
 			{"Always_show_side_panel", {1, 1, 3}, function(state, instance)
 				if instance then
@@ -5164,7 +5170,7 @@ local modules do
 			{"SEPARATOR", "UI Shadow Settings"},
 			{"Has_shadow", true, function(state)
 				metatable.Transparent = metatable.Transparent
-				TweenService:Create(script.Parent.Parent.Shadow, TweenInfo.new(state and 0.75 or 1.25), {ImageTransparency = state and 0.2 or 1}):Play()
+				tweenService:Create(script.Parent.Parent.Shadow, TweenInfo.new(state and 0.75 or 1.25), {ImageTransparency = state and 0.2 or 1}):Play()
 			end},
 			{"Shadow_centered", false, function(state)
 				script.Parent.Parent.Shadow:TweenPosition(state and UDim2.fromScale(0.5, 0.5) or UDim2.fromScale(0.515, 0.525), Enum.EasingDirection.Out, Enum.EasingStyle.Quad, 0.5, true)
@@ -5186,7 +5192,7 @@ local modules do
 		}
 
 		local function find(index)
-			for _, v in ipairs(settings) do
+			for _, v in settings do
 				if v[1] == index then
 					return v
 				end
@@ -5194,6 +5200,7 @@ local modules do
 			return nil
 		end
 
+		local files = getfenv().writefile and getfenv().readfile and getfenv().makefolder
 		metatable = setmetatable({ }, {
 			__index = function(self, index)
 				index = index:sub(1,1):upper() .. index:sub(2)
@@ -5201,7 +5208,7 @@ local modules do
 				if index == "Values" then
 					local vals = { }
 
-					for _, v in ipairs(settings) do
+					for _, v in settings do
 						vals[#vals+1] = { v[1], v[2] }
 					end
 
@@ -5220,7 +5227,7 @@ local modules do
 				end
 			end,
 			__newindex = function(self, index, value)
-				index = index:sub(1,1):upper() .. index:sub(2)
+				index = index:sub(1, 1):upper() .. index:sub(2)
 				local setting = find(index)
 				assert(setting, "Setting not found: " .. tostring(index))
 				assert(typeof(value) == typeof(setting[2]) or typeof(value) == "number" and typeof(setting[2]) == "table", ("Type mismatch for setting %s: expected %s got %s"):format(index, typeof(setting[2]), typeof(value)))
@@ -5231,8 +5238,54 @@ local modules do
 				if setting[3] then
 					task.spawn(setting[3], typeof(value) == "table" and value[1] or value, setting[4])
 				end
-			end,
+
+				local auto = find("Auto_load_settings")
+				if auto and auto[2] then
+					if files then
+						local saveFile = { }
+						for _, v in self.Values do
+							local i = v[1]
+							local v = v[2]
+
+							if i ~= "SEPARATOR" then
+								saveFile[i] = v
+							end
+						end
+
+						task.spawn(getfenv().writefile, "CDT/Settings.json", http:JSONEncode(saveFile))
+					end
+				end
+			end
 		})
+
+		if files then
+			getfenv().makefolder("CDT")
+			getfenv().writefile("CDT/CSpy.txt", "Yeah, If you wonder what CDT is, it is CSpy")
+
+			table.insert(settings, 1, {"Auto_load_settings", false, function(state)
+				task.spawn(getfenv().writefile, "CDT/Settings.bool", state and "1" or "0")
+
+				if state then
+					local success, json = pcall(getfenv().readfile, "CDT/Settings.json")
+					if success then
+						for index, value in http:JSONDecode(json) do
+							if index ~= "Auto_load_settings" then
+								metatable[index] = typeof(value) == "table" and value[1] or value
+							end
+						end
+					end
+				end
+			end})
+
+			table.insert(settings, 1, {"SEPARATOR", "Saves"})
+
+			local success, value = pcall(getfenv().readfile, "CDT/Settings.bool")
+			if success then
+				task.delay(5, function()
+					metatable.Auto_load_settings = value == "1"
+				end)
+			end
+		end
 
 		return metatable
 	end;
@@ -5246,8 +5299,8 @@ local modules do
 
 			local settingTypes = shared:AddObject({
 				boolean = function(instance, setting)
-					local state = settings[setting]
 					local function updateState()
+						local state = settings[setting]
 						TweenService:Create(instance.State, TweenInfo.new(0.35), shared:AddObject({BackgroundColor3 = state and Color3.new(1, 1, 1) or Color3.fromRGB(50, 50, 50)})):Play()
 						TweenService:Create(instance.State.State, TweenInfo.new(0.35), shared:AddObject({
 							BackgroundColor3 = state and Color3.fromRGB(50, 50, 50) or Color3.new(1, 1, 1),
@@ -5258,10 +5311,10 @@ local modules do
 
 					updateState()
 					cons[#cons+1] = instance.MouseButton1Click:Connect(function()
-						state = not state
-						settings[setting] = state
-						updateState()
+						settings[setting] = not settings[setting]
 					end)
+
+					shared.Settings.Event:Connect(updateState)
 				end,
 
 				table = function(instance, setting)
@@ -5312,7 +5365,11 @@ local modules do
 						end
 					end)
 
-					set(val)
+					task.spawn(set, val)
+
+					shared.Settings.Event:Connect(function()
+						set(settings[setting])
+					end)
 				end,
 			})
 
@@ -5361,7 +5418,7 @@ local modules do
 
 			shared.SidePanelEvent.Event:Connect(function(visible)
 				for _, obj in separators do
-					obj.FrameRight:TweenSize(UDim2.new(0.94 - (#obj.Name * (visible and 0.0115 or 0.01)), 0, 0, 1), nil, nil, 0.15, true)
+					obj.FrameRight:TweenSize(UDim2.new(0.96 - (#obj.Name * (visible and 0.01 or 0.0125)), 0, 0, 1), nil, nil, 0.15, true)
 				end
 			end)
 		end
@@ -5707,7 +5764,7 @@ local modules do
 			local t = typeof(arg)
 			if t == "string" then
 				local success, decoded = pcall(http.JSONDecode, http, arg)
-				if success then
+				if success and not tonumber(arg) then
 					return "game:GetService(\"HttpService\"):JSONEncode(" .. tostr(decoded) .. ")"
 				else
 					if #arg == 38 and arg:sub(1, 1) == "{" and arg:sub(-1) == "}" and arg:sub(10, 10) == "-" and arg:sub(15, 15) == "-" and arg:sub(20, 20) == "-" and arg:sub(25, 25) == "-" then
@@ -5727,7 +5784,7 @@ local modules do
 					end
 				elseif math.abs(workspace:GetServerTimeNow() - arg) <= 2.5 then
 					return "workspace:GetServerTimeNow() --[[" .. arg .. "]]"
-				elseif math.abs(time() - arg) <= 2.5 and time() > 30 then
+				elseif math.abs(time() - arg) <= 2.5 and math.floor(arg) ~= arg then
 					return "time() --[[" .. arg .. "]]"
 				end
 
@@ -6281,19 +6338,27 @@ do
 
 			isMinimized = false
 			cooldown = false
-
-			for _, v in settings.Values do
-				local i = v[1]
-				local v = v[2]
-
-				if i ~= "SEPARATOR" then
-					settings[i] = v
-				end
-			end
 		end
+
+		local files = getfenv().writefile and getfenv().readfile and getfenv().makefolder
+		local http = game:GetService("HttpService")
 
 		cons[#cons+1] = script.Parent.Main.TopbarZone.Buttons.Minimize.MouseButton1Click:Connect(minimize)
 		cons[#cons+1] = script.Parent.Main.TopbarZone.Buttons.Close.MouseButton1Click:Connect(function()
+			if files then
+				local saveFile = { }
+				for _, v in settings.Values do
+					local i = v[1]
+					local v = v[2]
+
+					if i ~= "SEPARATOR" then
+						saveFile[i] = v
+					end
+				end
+
+				task.spawn(getfenv().writefile, "CDT/Settings.json", http:JSONEncode(saveFile))
+			end
+
 			shared.OnCloseEvent:Fire()
 			shared.Global[shared._idx] = nil
 
@@ -6302,6 +6367,24 @@ do
 			for i, v in cons do
 				if v and v.Connected then
 					v:Disconnect()
+				end
+			end
+		end)
+
+		cons[#cons + 1] = game:GetService("Players").PlayerRemoving:Connect(function(plr)
+			if plr == game:GetService("Players").LocalPlayer then
+				if files then
+					local saveFile = { }
+					for _, v in settings.Values do
+						local i = v[1]
+						local v = v[2]
+
+						if i ~= "SEPARATOR" then
+							saveFile[i] = v
+						end
+					end
+
+					task.spawn(getfenv().writefile, "CDT/Settings.json", http:JSONEncode(saveFile))
 				end
 			end
 		end)
@@ -6317,15 +6400,24 @@ do
 			script.Parent.Size = UDim2.fromScale(0.05, 0.05)
 			script.Parent.Main.BackgroundTransparency = 1
 			script.Parent.Main.Contents.Visible = false
+			script.Parent.Main.Overlay.Visible = false
+			script.Parent.Main.TopbarZone.Visible = false
+			script.Parent.Visible = false
 
 			repeat task.wait() until game:IsLoaded() and workspace.CurrentCamera and task.wait(1)
 
 			script.Parent.Visible = true
-			script.Parent.Main.Overlay.Visible = false
-			script.Parent.Main.Contents.Visible = false
-			script.Parent.Main.TopbarZone.Visible = false
 
 			maximize()
+
+			for _, v in settings.Values do
+				local i = v[1]
+				local v = v[2]
+
+				if i ~= "SEPARATOR" then
+					settings[i] = v
+				end
+			end
 		end)
 	end);
 end;
