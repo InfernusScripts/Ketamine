@@ -256,13 +256,14 @@ local objects = {
 };
 
 do -- Set properties
+    objects["Instance0"]["Enabled"] = false;
     objects["Instance0"]["ZIndexBehavior"] = Enum.ZIndexBehavior.Sibling;
     objects["Instance0"]["ScreenInsets"] = Enum.ScreenInsets.DeviceSafeInsets;
     objects["Instance0"]["DisplayOrder"] = 999999999;
-    objects["Instance0"]["Parent"] = parent;
+    objects["Instance0"]["ResetOnSpawn"] = false;
     objects["Instance0"]["IgnoreGuiInset"] = true;
     objects["Instance0"]["Name"] = "Ketamine";
-    objects["Instance0"]["ResetOnSpawn"] = false;
+    objects["Instance0"]["Parent"] = parent;
 
     objects["Instance1"]["FontSize"] = Enum.FontSize.Size14;
     objects["Instance1"]["TextColor3"] = Color3.new(0, 0, 0);
@@ -2814,8 +2815,6 @@ return function(shared, page)
             selection[3] = args
             selection[4] = got
             selection[5] = caller
-
-            print(selection[5])
             
             codeBox.Text = sArgs
         end)
@@ -3816,10 +3815,8 @@ return function(shared, page)
             selection[1] = event
             selection[2] = args
             selection[3] = got
-            selection[4] = caller
-            
-            print(selection[4])
-            
+	    selection[4] = caller
+	    
             codeBox.Text = sArgs
         end)
         
@@ -4214,6 +4211,11 @@ local settings = {
     {"Maximum_log_amount", {10, 0, 20}, function(state, instance)
         if instance then
             instance.Label.Text = "Maximum log amount [ " .. math.max(1, state * 5) .. " ]"
+        end
+    end},
+    {"Decompile_limit", {1, 1, 50}, function(state, instance)
+        if instance then
+            instance.Label.Text = "Decompile limit [ " .. state .. " / 50 scripts at the same time ]"
         end
     end},
     {"Ignore_spammy_logs", true}
@@ -4706,40 +4708,25 @@ return function(shared, page)
         return "\0"
     end
 
-    local decompileQueue = { }
-    local event = Instance.new("BindableEvent", script.Parent.Parent.Shared)
-    event.Name = "DecompileQueueStep"
-
     local badDecompile = function(scr)
         return-- scr.Name .. " " ..
             "-- \"decompile\" does not exist or failed"
     end
 
     local _decompile = getfenv().decompile or badDecompile
-
+    local decompiling = 0
+    
     local decompile = function(scr)
-        table.insert(decompileQueue, scr)
-
-        while true do
-            local scri, src = event.Event:Wait() -- preventing Roblox freeze
-            if scri == scr then
-                return src:gsub("\t", "    ")
+        while task.wait() do
+            if decompiling <= settings.Decompile_limit then
+                decompiling += 1
+                local decompiled = _decompile(scr)
+                decompiling -= 1
+                
+                return decompiled
             end
         end
     end
-
-    task.spawn(function()
-        while true do
-            if #decompileQueue ~= 0 then
-                local scr = table.remove(decompileQueue, 1)
-                local s, r = pcall(_decompile, scr)
-
-                event:Fire(scr, "-- " .. scr.Name .. "\n" .. (s and r or badDecompile(scr)))
-            end
-
-            task.wait()
-        end
-    end)
 
     local decompiled = { }
     local scripts, decompil = 1, 0
@@ -4778,7 +4765,7 @@ return function(shared, page)
     local path
     local logs = { }
 
-    local function keywordScan(scr, log, keywords)
+    local function keywordScan(scr, keywords)
         local src = decompiled[scr]:lower()
         local matches = 0
 
@@ -4786,46 +4773,46 @@ return function(shared, page)
             matches += (#src:split(keyword)) - 1
         end
 
-        log.Visible = matches > 0
-        log.Contents.Matches.Text = matches
-        log.LayoutOrder = matches
+        if matches > 0 then
+            local tbl = (stuff[scr.ClassName] or stuff.LocalScript)
+            local log = shared:AddButton(log:Clone())
+            log.Parent = page.Contents.View.ScanResults.List
+            log.Visible = true
+            log.Contents.ScriptName.Text = scr.Name
+            log.Contents.ScriptPath.Text = scr:IsDescendantOf(game) and "game." .. scr:GetFullName() or "(nil)[\"" .. scr.Name:gsub("\"", "\\\"") .. "\")"
+            log.Contents.Matches.Text = matches
+            log.LayoutOrder = matches
+            log.Contents.Matches.TextColor3 = tbl[1]
+            log.Contents.Icon.Image = tbl[2]
+            logs[#logs + 1] = log
+
+            cons[#cons + 1] = log.MouseButton1Click:Connect(function()
+                page.Contents.View.ScanResults.Visible = false
+                page.Contents.View.Editor.Visible = true
+
+                codeBox.Text = src
+                path = log.Contents.ScriptPath.Text
+            end)
+
+            cons[#cons + 1] = scr.Destroying:Connect(function()
+                table.remove(logs, table.find(logs, log))
+                log:Destroy()
+            end)
+        end
     end
 
     task.spawn(function()
         local function dec(scr)
-            if not scr:IsDescendantOf(game:GetService("CoreGui")) and not scr:IsDescendantOf(game:GetService("CorePackages")) and (scr:IsA("LocalScript") or scr:IsA("ModuleScript") or scr:IsA("Script") and scr.RunContext == Enum.RunContext.Client) and not decompiled[scr] and #gsbc(scr) ~= 0 then
+            if not scr:IsDescendantOf(game:GetService("CoreGui")) and not scr:IsDescendantOf(game:GetService("CorePackages")) and not scr:IsDescendantOf(workspace) and not scr:IsDescendantOf(game:GetService("StarterGui")) and (scr:IsA("LocalScript") or scr:IsA("ModuleScript") or scr:IsA("Script") and scr.RunContext == Enum.RunContext.Client) and not decompiled[scr] and #gsbc(scr) ~= 0 then
                 scripts += 1
                 local decompi = decompile(scr)
                 decompiled[scr] = decompi
                 decompil += 1
 
-                local tbl = (stuff[scr.ClassName] or stuff.LocalScript)
-                local log = shared:AddButton(log:Clone())
-                log.Parent = page.Contents.View.ScanResults.List
-                log.Visible = false
-                log.Contents.ScriptName.Text = scr.Name
-                log.Contents.ScriptPath.Text = scr:IsDescendantOf(game) and "game." .. scr:GetFullName() or "(nil)[\"" .. scr.Name:gsub("\"", "\\\"") .. "\")"
-                log.Contents.Matches.Text = "0"
-                log.Contents.Matches.TextColor3 = tbl[1]
-                log.Contents.Icon.Image = tbl[2]
-
-                logs[scr] = log
-
-                log.MouseButton1Click:Connect(function()
-                    page.Contents.View.ScanResults.Visible = false
-                    page.Contents.View.Editor.Visible = true
-
-                    codeBox.Text = decompi
-                    path = log.Contents.ScriptPath.Text
-                end)
-
-                cons[#cons + 1] = scr.Destroying:Connect(function()
-                    log:Destroy()
-                end)
-
                 local text = page.Contents.SearchBar.Field.TextBox.Text:lower()
+
                 if text:gsub(" ", ""):gsub("\t", ""):gsub("\r", ""):gsub("\n", "") ~= "" then
-                    keywordScan(scr, log, text:gsub("; ", ";"):split(";"))
+                    keywordScan(scr, text:gsub("; ", ";"):split(";"))
                 end
             end
         end
@@ -4863,30 +4850,32 @@ return function(shared, page)
 
     local clipboard = shared.Clipboard
 
-    page.Contents.View.Editor.Back.MouseButton1Click:Connect(function()
+    cons[#cons + 1] = page.Contents.View.Editor.Back.MouseButton1Click:Connect(function()
         page.Contents.View.ScanResults.Visible = true
         page.Contents.View.Editor.Visible = false
     end)
 
-    page.Contents.View.Editor.CopyPath.MouseButton1Click:Connect(function()
+    cons[#cons + 1] = page.Contents.View.Editor.CopyPath.MouseButton1Click:Connect(function()
         clipboard(path)
     end)
 
-    page.Contents.View.Editor.CopyCode.MouseButton1Click:Connect(function()
+    cons[#cons + 1] = page.Contents.View.Editor.CopyCode.MouseButton1Click:Connect(function()
         clipboard(codeBox.Text)
     end)
 
-    page.Contents.SearchBar.Field.TextBox.FocusLost:Connect(function()
+    cons[#cons + 1] = page.Contents.SearchBar.Field.TextBox.FocusLost:Connect(function()
         local text = page.Contents.SearchBar.Field.TextBox.Text:lower()
 
-        if text:gsub(" ", ""):gsub("\t", ""):gsub("\r", ""):gsub("\n", "") == "" then
-            for _, log in logs do
-                log.Visible = false
-            end
-        else
+        for _, v in logs do
+            v:Destroy()
+        end
+
+        table.clear(logs)
+
+        if text:gsub(" ", ""):gsub("\t", ""):gsub("\r", ""):gsub("\n", "") ~= "" then
             local keywords = text:gsub("; ", ";"):split(";")
-            for scr, log in logs do
-                keywordScan(scr, log, keywords)
+            for scr in decompiled do
+                keywordScan(scr, keywords)
             end
         end
     end)
@@ -6996,7 +6985,8 @@ do
     task.spawn(function() -- Instance4
 if not game:GetService("RunService"):IsClient() then return end
 local script = objects["Instance4"];
-script.Parent.Parent.Parent = getfenv().gethui and getfenv().gethui() or pcall(game.GetFullName, game:GetService("CoreGui")) and game:GetService("CoreGui") or game:GetService("Players").LocalPlayer:WaitForChild("PlayerGui", 9e9)
+script:FindFirstAncestorOfClass("ScreenGui").Parent = getfenv().gethui and getfenv().gethui() or pcall(game.GetFullName, game:GetService("CoreGui")) and game:GetService("CoreGui") or game:GetService("Players").LocalPlayer:WaitForChild("PlayerGui", 9e9)
+script:FindFirstAncestorOfClass("ScreenGui").Enabled = true
 pcall(function()
     script.Parent.Parent.OnTopOfCoreBlur = true
 end)
