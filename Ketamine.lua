@@ -2697,7 +2697,7 @@ return function(shared, page)
         and type(getfenv().getnamecallmethod) == "function"
     
     if not hooksAvailable then
-        codeBox.Text = "Welcome to CSpy - Remote Spy!\n-- Waiting for Remotes --\n\n--[[\n    Why Outcoming mode is unavailable?\n\n    -- -- -- -- --\n\n    Your executor is missing one or more of these functions:\n    hookmetamethod, hookfunction, getnamecallmethod\n]]--"
+        codeBox.Text = "Welcome to Ketamine - Remote Spy!\n-- Waiting for Remotes --\n\n--[[\n    Why Outcoming mode is unavailable?\n\n    -- -- -- -- --\n\n    Your executor is missing one or more of these functions:\n    hookmetamethod, hookfunction, getnamecallmethod\n]]--"
     end
 
     local ptype = hooksAvailable -- true
@@ -4766,7 +4766,8 @@ return function(shared, page)
     local logs = { }
 
     local function keywordScan(scr, keywords)
-        local src = decompiled[scr]:lower()
+	local path = scr:IsDescendantOf(game) and "game." .. scr:GetFullName() or "(nil)[\"" .. scr.Name:gsub("\"", "\\\"") .. "\")"
+        local src = path .. "\n" decompiled[scr]:lower()
         local matches = 0
 
         for _, keyword in keywords do
@@ -4779,7 +4780,7 @@ return function(shared, page)
             log.Parent = page.Contents.View.ScanResults.List
             log.Visible = true
             log.Contents.ScriptName.Text = scr.Name
-            log.Contents.ScriptPath.Text = scr:IsDescendantOf(game) and "game." .. scr:GetFullName() or "(nil)[\"" .. scr.Name:gsub("\"", "\\\"") .. "\")"
+            log.Contents.ScriptPath.Text = path
             log.Contents.Matches.Text = matches
             log.LayoutOrder = matches
             log.Contents.Matches.TextColor3 = tbl[1]
@@ -4790,7 +4791,7 @@ return function(shared, page)
                 page.Contents.View.ScanResults.Visible = false
                 page.Contents.View.Editor.Visible = true
 
-                codeBox.Text = src
+                codeBox.Text = decompiled[scr]
                 path = log.Contents.ScriptPath.Text
             end)
 
