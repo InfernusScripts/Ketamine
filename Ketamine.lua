@@ -8,20 +8,20 @@ local parent = nil;
 local objects = {
     ["Instance0"] = Instance.new("ScreenGui"); -- Ketamine
     ["Instance1"] = Instance.new("TextButton"); -- Window
-    ["Instance2"] = Instance.new("UIAspectRatioConstraint"); -- UIAspectRatioConstraint
-    ["Instance3"] = Instance.new("ImageLabel"); -- Shadow
-    ["Instance4"] = Instance.new("LocalScript"); -- UIControl
-    ["Instance5"] = Instance.new("ModuleScript"); -- Settings
-    ["Instance6"] = Instance.new("Folder"); -- PageControls
-    ["Instance7"] = Instance.new("ModuleScript"); -- Settings
-    ["Instance8"] = Instance.new("ModuleScript"); -- RSpy
-    ["Instance9"] = Instance.new("ModuleScript"); -- ESpy
-    ["Instance10"] = Instance.new("ModuleScript"); -- HTTPSpy
-    ["Instance11"] = Instance.new("ModuleScript"); -- ScriptScanner
-    ["Instance12"] = Instance.new("ModuleScript"); -- Shared
-    ["Instance13"] = Instance.new("ModuleScript"); -- CodeBox
-    ["Instance14"] = Instance.new("ModuleScript"); -- ToString
-    ["Instance15"] = Instance.new("ModuleScript"); -- HookFunction
+    ["Instance2"] = Instance.new("LocalScript"); -- UIControl
+    ["Instance3"] = Instance.new("ModuleScript"); -- Settings
+    ["Instance4"] = Instance.new("ModuleScript"); -- Shared
+    ["Instance5"] = Instance.new("ModuleScript"); -- CodeBox
+    ["Instance6"] = Instance.new("ModuleScript"); -- ToString
+    ["Instance7"] = Instance.new("ModuleScript"); -- HookFunction
+    ["Instance8"] = Instance.new("Folder"); -- PageControls
+    ["Instance9"] = Instance.new("ModuleScript"); -- Settings
+    ["Instance10"] = Instance.new("ModuleScript"); -- RSpy
+    ["Instance11"] = Instance.new("ModuleScript"); -- ESpy
+    ["Instance12"] = Instance.new("ModuleScript"); -- HTTPSpy
+    ["Instance13"] = Instance.new("ModuleScript"); -- ScriptScanner
+    ["Instance14"] = Instance.new("UIAspectRatioConstraint"); -- UIAspectRatioConstraint
+    ["Instance15"] = Instance.new("ImageLabel"); -- Shadow
     ["Instance16"] = Instance.new("Frame"); -- Main
     ["Instance17"] = Instance.new("Frame"); -- TopbarZone
     ["Instance18"] = Instance.new("ImageLabel"); -- Icon
@@ -249,21 +249,24 @@ local objects = {
     ["Instance240"] = Instance.new("UIGradient"); -- UIGradient
     ["Instance241"] = Instance.new("TextLabel"); -- TextLabel
     ["Instance242"] = Instance.new("Frame"); -- Separator
-    ["Instance243"] = Instance.new("TextButton"); -- Hover
+    ["Instance243"] = Instance.new("TextButton"); -- Start
     ["Instance244"] = Instance.new("UICorner"); -- UICorner
-    ["Instance245"] = Instance.new("Frame"); -- Overlay
-    ["Instance246"] = Instance.new("UICorner"); -- UICorner
+    ["Instance245"] = Instance.new("UIStroke"); -- UIStroke
+    ["Instance246"] = Instance.new("UIPadding"); -- UIPadding
+    ["Instance247"] = Instance.new("TextButton"); -- Hover
+    ["Instance248"] = Instance.new("UICorner"); -- UICorner
+    ["Instance249"] = Instance.new("Frame"); -- Overlay
+    ["Instance250"] = Instance.new("UICorner"); -- UICorner
 };
 
 do -- Set properties
-    objects["Instance0"]["Enabled"] = false;
     objects["Instance0"]["ZIndexBehavior"] = Enum.ZIndexBehavior.Sibling;
     objects["Instance0"]["ScreenInsets"] = Enum.ScreenInsets.DeviceSafeInsets;
     objects["Instance0"]["DisplayOrder"] = 999999999;
-    objects["Instance0"]["ResetOnSpawn"] = false;
+    objects["Instance0"]["Parent"] = parent;
     objects["Instance0"]["IgnoreGuiInset"] = true;
     objects["Instance0"]["Name"] = "Ketamine";
-    objects["Instance0"]["Parent"] = parent;
+    objects["Instance0"]["ResetOnSpawn"] = false;
 
     objects["Instance1"]["FontSize"] = Enum.FontSize.Size14;
     objects["Instance1"]["TextColor3"] = Color3.new(0, 0, 0);
@@ -281,61 +284,61 @@ do -- Set properties
     objects["Instance1"]["BackgroundColor3"] = Color3.new(1, 1, 1);
 
     objects["Instance2"]["Parent"] = objects["Instance1"];
-    objects["Instance2"]["AspectRatio"] = 1.899999976158142;
+    objects["Instance2"]["Name"] = "UIControl";
 
-    objects["Instance3"]["ImageColor3"] = Color3.new(0, 0, 0);
-    objects["Instance3"]["ImageTransparency"] = 0.20000000298023224;
-    objects["Instance3"]["Parent"] = objects["Instance1"];
-    objects["Instance3"]["AnchorPoint"] = Vector2.new(0.5, 0.5);
-    objects["Instance3"]["Image"] = "rbxassetid://8774493213";
-    objects["Instance3"]["ZIndex"] = 0;
-    objects["Instance3"]["BorderSizePixel"] = 0;
-    objects["Instance3"]["SliceCenter"] = --[[ Unknown type for ArgToString: "Rect" ; Trying the awful method: type.new(tostring(arg)) ]] Rect.new(135, 135, 889, 512);
-    objects["Instance3"]["Localize"] = false;
-    objects["Instance3"]["ScaleType"] = Enum.ScaleType.Slice;
-    objects["Instance3"]["AutoLocalize"] = false;
-    objects["Instance3"]["BorderColor3"] = Color3.new(0, 0, 0);
-    objects["Instance3"]["Name"] = "Shadow";
-    objects["Instance3"]["Position"] = UDim2.new(0.512499988, 0, 0.524999976, 0);
-    objects["Instance3"]["BackgroundTransparency"] = 1;
-    objects["Instance3"]["Size"] = UDim2.new(1.10000002, 0, 1.14999998, 0);
-    objects["Instance3"]["BackgroundColor3"] = Color3.new(0, 0, 0);
+    objects["Instance3"]["Parent"] = objects["Instance2"];
+    objects["Instance3"]["Name"] = "Settings";
 
-    objects["Instance4"]["Parent"] = objects["Instance1"];
-    objects["Instance4"]["Name"] = "UIControl";
+    objects["Instance4"]["Parent"] = objects["Instance2"];
+    objects["Instance4"]["Name"] = "Shared";
 
-    objects["Instance5"]["Parent"] = objects["Instance4"];
-    objects["Instance5"]["Name"] = "Settings";
+    objects["Instance5"]["Parent"] = objects["Instance2"];
+    objects["Instance5"]["Name"] = "CodeBox";
 
-    objects["Instance6"]["Name"] = "PageControls";
-    objects["Instance6"]["Parent"] = objects["Instance4"];
+    objects["Instance6"]["Parent"] = objects["Instance2"];
+    objects["Instance6"]["Name"] = "ToString";
 
-    objects["Instance7"]["Parent"] = objects["Instance6"];
-    objects["Instance7"]["Name"] = "Settings";
+    objects["Instance7"]["Parent"] = objects["Instance2"];
+    objects["Instance7"]["Name"] = "HookFunction";
 
-    objects["Instance8"]["Parent"] = objects["Instance6"];
-    objects["Instance8"]["Name"] = "RSpy";
+    objects["Instance8"]["Name"] = "PageControls";
+    objects["Instance8"]["Parent"] = objects["Instance2"];
 
-    objects["Instance9"]["Parent"] = objects["Instance6"];
-    objects["Instance9"]["Name"] = "ESpy";
+    objects["Instance9"]["Parent"] = objects["Instance8"];
+    objects["Instance9"]["Name"] = "Settings";
 
-    objects["Instance10"]["Parent"] = objects["Instance6"];
-    objects["Instance10"]["Name"] = "HTTPSpy";
+    objects["Instance10"]["Parent"] = objects["Instance8"];
+    objects["Instance10"]["Name"] = "RSpy";
 
-    objects["Instance11"]["Parent"] = objects["Instance6"];
-    objects["Instance11"]["Name"] = "ScriptScanner";
+    objects["Instance11"]["Parent"] = objects["Instance8"];
+    objects["Instance11"]["Name"] = "ESpy";
 
-    objects["Instance12"]["Parent"] = objects["Instance4"];
-    objects["Instance12"]["Name"] = "Shared";
+    objects["Instance12"]["Parent"] = objects["Instance8"];
+    objects["Instance12"]["Name"] = "HTTPSpy";
 
-    objects["Instance13"]["Parent"] = objects["Instance4"];
-    objects["Instance13"]["Name"] = "CodeBox";
+    objects["Instance13"]["Parent"] = objects["Instance8"];
+    objects["Instance13"]["Name"] = "ScriptScanner";
 
-    objects["Instance14"]["Parent"] = objects["Instance4"];
-    objects["Instance14"]["Name"] = "ToString";
+    objects["Instance14"]["Parent"] = objects["Instance1"];
+    objects["Instance14"]["AspectRatio"] = 1.899999976158142;
 
-    objects["Instance15"]["Parent"] = objects["Instance4"];
-    objects["Instance15"]["Name"] = "HookFunction";
+    objects["Instance15"]["ImageColor3"] = Color3.new(0, 0, 0);
+    objects["Instance15"]["ImageTransparency"] = 0.20000000298023224;
+    objects["Instance15"]["Parent"] = objects["Instance1"];
+    objects["Instance15"]["AnchorPoint"] = Vector2.new(0.5, 0.5);
+    objects["Instance15"]["Image"] = "rbxassetid://8774493213";
+    objects["Instance15"]["ZIndex"] = 0;
+    objects["Instance15"]["BorderSizePixel"] = 0;
+    objects["Instance15"]["SliceCenter"] = --[[ Unknown type for ArgToString: "Rect" ; Trying the awful method: type.new(tostring(arg)) ]] Rect.new(135, 135, 889, 512);
+    objects["Instance15"]["Localize"] = false;
+    objects["Instance15"]["ScaleType"] = Enum.ScaleType.Slice;
+    objects["Instance15"]["AutoLocalize"] = false;
+    objects["Instance15"]["BorderColor3"] = Color3.new(0, 0, 0);
+    objects["Instance15"]["Name"] = "Shadow";
+    objects["Instance15"]["Position"] = UDim2.new(0.512499988, 0, 0.524999976, 0);
+    objects["Instance15"]["BackgroundTransparency"] = 1;
+    objects["Instance15"]["Size"] = UDim2.new(1.10000002, 0, 1.14999998, 0);
+    objects["Instance15"]["BackgroundColor3"] = Color3.new(0, 0, 0);
 
     objects["Instance16"]["BackgroundTransparency"] = 0.20000000298023224;
     objects["Instance16"]["Name"] = "Main";
@@ -1942,7 +1945,6 @@ do -- Set properties
     objects["Instance173"]["BorderSizePixel"] = 0;
     objects["Instance173"]["BackgroundColor3"] = Color3.new(0.294118, 0.294118, 0.294118);
 
-    objects["Instance174"]["Visible"] = false;
     objects["Instance174"]["BackgroundTransparency"] = 1;
     objects["Instance174"]["Name"] = "HTTPSpy";
     objects["Instance174"]["BorderColor3"] = Color3.new(0, 0, 0);
@@ -2165,11 +2167,12 @@ do -- Set properties
     objects["Instance195"]["BorderSizePixel"] = 0;
     objects["Instance195"]["BackgroundColor3"] = Color3.new(0.294118, 0.294118, 0.294118);
 
-    objects["Instance196"]["BackgroundTransparency"] = 1;
-    objects["Instance196"]["BorderColor3"] = Color3.new(0, 0, 0);
-    objects["Instance196"]["Name"] = "ScriptScanner";
+    objects["Instance196"]["Visible"] = false;
     objects["Instance196"]["ClipsDescendants"] = true;
     objects["Instance196"]["Parent"] = objects["Instance75"];
+    objects["Instance196"]["Name"] = "ScriptScanner";
+    objects["Instance196"]["BackgroundTransparency"] = 1;
+    objects["Instance196"]["BorderColor3"] = Color3.new(0, 0, 0);
     objects["Instance196"]["Size"] = UDim2.new(1, 0, 1, 0);
     objects["Instance196"]["BorderSizePixel"] = 0;
     objects["Instance196"]["BackgroundColor3"] = Color3.new(1, 1, 1);
@@ -2574,11 +2577,12 @@ do -- Set properties
     objects["Instance235"]["BorderSizePixel"] = 0;
     objects["Instance235"]["BackgroundColor3"] = Color3.new(1, 1, 1);
 
+    objects["Instance236"]["Visible"] = false;
+    objects["Instance236"]["Parent"] = objects["Instance235"];
     objects["Instance236"]["AnchorPoint"] = Vector2.new(0, 0.5);
-    objects["Instance236"]["BorderColor3"] = Color3.new(0, 0, 0);
     objects["Instance236"]["BackgroundTransparency"] = 0.5;
     objects["Instance236"]["Position"] = UDim2.new(0.0160000008, 0, 0.75, 0);
-    objects["Instance236"]["Parent"] = objects["Instance235"];
+    objects["Instance236"]["BorderColor3"] = Color3.new(0, 0, 0);
     objects["Instance236"]["Size"] = UDim2.new(0.967999995, 0, 0.5, 0);
     objects["Instance236"]["BorderSizePixel"] = 0;
     objects["Instance236"]["BackgroundColor3"] = Color3.new(0, 0, 0);
@@ -2608,21 +2612,22 @@ do -- Set properties
     [2] = NumberSequenceKeypoint.new(1, 1, 0);
 });
 
-    objects["Instance241"]["TextWrapped"] = true;
-    objects["Instance241"]["FontSize"] = Enum.FontSize.Size14;
-    objects["Instance241"]["TextSize"] = 14;
-    objects["Instance241"]["TextColor3"] = Color3.new(1, 1, 1);
+    objects["Instance241"]["Visible"] = false;
+    objects["Instance241"]["FontFace"] = Font.new("rbxasset://fonts/families/HighwayGothic.json", Enum.FontWeight.Regular, Enum.FontStyle.Normal);
     objects["Instance241"]["Parent"] = objects["Instance235"];
-    objects["Instance241"]["Text"] = "The tool is loading...";
-    objects["Instance241"]["BackgroundColor3"] = Color3.new(1, 1, 1);
-    objects["Instance241"]["BorderColor3"] = Color3.new(0, 0, 0);
     objects["Instance241"]["AnchorPoint"] = Vector2.new(0, 0.5);
+    objects["Instance241"]["BorderSizePixel"] = 0;
     objects["Instance241"]["Size"] = UDim2.new(1, 0, 0.349999994, 0);
+    objects["Instance241"]["TextColor3"] = Color3.new(1, 1, 1);
+    objects["Instance241"]["BorderColor3"] = Color3.new(0, 0, 0);
+    objects["Instance241"]["Text"] = "The tool is loading...";
+    objects["Instance241"]["TextSize"] = 14;
+    objects["Instance241"]["TextWrapped"] = true;
     objects["Instance241"]["BackgroundTransparency"] = 1;
     objects["Instance241"]["Position"] = UDim2.new(0, 0, 0.25, 0);
-    objects["Instance241"]["FontFace"] = Font.new("rbxasset://fonts/families/HighwayGothic.json", Enum.FontWeight.Regular, Enum.FontStyle.Normal);
+    objects["Instance241"]["BackgroundColor3"] = Color3.new(1, 1, 1);
+    objects["Instance241"]["FontSize"] = Enum.FontSize.Size14;
     objects["Instance241"]["TextScaled"] = true;
-    objects["Instance241"]["BorderSizePixel"] = 0;
     objects["Instance241"]["TextWrap"] = true;
 
     objects["Instance242"]["BackgroundTransparency"] = 0.5;
@@ -2633,34 +2638,64 @@ do -- Set properties
     objects["Instance242"]["BorderSizePixel"] = 0;
     objects["Instance242"]["BackgroundColor3"] = Color3.new(0.294118, 0.294118, 0.294118);
 
-    objects["Instance243"]["FontSize"] = Enum.FontSize.Size14;
-    objects["Instance243"]["TextColor3"] = Color3.new(0, 0, 0);
-    objects["Instance243"]["BorderColor3"] = Color3.new(0, 0, 0);
-    objects["Instance243"]["Text"] = "";
-    objects["Instance243"]["AutoButtonColor"] = false;
-    objects["Instance243"]["TextSize"] = 14;
-    objects["Instance243"]["Name"] = "Hover";
-    objects["Instance243"]["BackgroundTransparency"] = 1;
-    objects["Instance243"]["Parent"] = objects["Instance31"];
-    objects["Instance243"]["FontFace"] = Font.new("rbxasset://fonts/families/SourceSansPro.json", Enum.FontWeight.Regular, Enum.FontStyle.Normal);
-    objects["Instance243"]["Size"] = UDim2.new(0.075000003, 0, 1, 0);
+    objects["Instance243"]["FontFace"] = Font.new("rbxasset://fonts/families/TitilliumWeb.json", Enum.FontWeight.Regular, Enum.FontStyle.Normal);
+    objects["Instance243"]["Active"] = false;
+    objects["Instance243"]["Parent"] = objects["Instance235"];
+    objects["Instance243"]["AnchorPoint"] = Vector2.new(0, 0.5);
     objects["Instance243"]["BorderSizePixel"] = 0;
+    objects["Instance243"]["Size"] = UDim2.new(0.967999995, 0, 0.800000012, 0);
+    objects["Instance243"]["TextColor3"] = Color3.new(1, 1, 1);
+    objects["Instance243"]["BorderColor3"] = Color3.new(0, 0, 0);
+    objects["Instance243"]["Text"] = "Start Scanning";
+    objects["Instance243"]["Selectable"] = false;
+    objects["Instance243"]["TextWrap"] = true;
+    objects["Instance243"]["ClipsDescendants"] = true;
+    objects["Instance243"]["BackgroundTransparency"] = 0.949999988079071;
+    objects["Instance243"]["Position"] = UDim2.new(0.0160000008, 0, 0.574999988, 0);
+    objects["Instance243"]["TextWrapped"] = true;
+    objects["Instance243"]["Name"] = "Start";
+    objects["Instance243"]["TextScaled"] = true;
     objects["Instance243"]["BackgroundColor3"] = Color3.new(1, 1, 1);
 
-    objects["Instance244"]["Parent"] = objects["Instance16"];
-    objects["Instance244"]["CornerRadius"] = UDim.new(0.00999999978, 0);
+    objects["Instance244"]["Parent"] = objects["Instance243"];
+    objects["Instance244"]["CornerRadius"] = UDim.new(0.200000003, 0);
 
-    objects["Instance245"]["Visible"] = false;
-    objects["Instance245"]["BorderColor3"] = Color3.new(0, 0, 0);
-    objects["Instance245"]["Name"] = "Overlay";
-    objects["Instance245"]["Size"] = UDim2.new(1, 0, 1, 0);
-    objects["Instance245"]["Parent"] = objects["Instance16"];
-    objects["Instance245"]["ZIndex"] = 999999999;
-    objects["Instance245"]["BorderSizePixel"] = 0;
-    objects["Instance245"]["BackgroundColor3"] = Color3.new(0.105882, 0.105882, 0.105882);
+    objects["Instance245"]["Parent"] = objects["Instance243"];
+    objects["Instance245"]["Transparency"] = 0.5;
+    objects["Instance245"]["ApplyStrokeMode"] = Enum.ApplyStrokeMode.Border;
 
-    objects["Instance246"]["Parent"] = objects["Instance245"];
-    objects["Instance246"]["CornerRadius"] = UDim.new(0.0149999997, 0);
+    objects["Instance246"]["Parent"] = objects["Instance243"];
+    objects["Instance246"]["PaddingTop"] = UDim.new(0.100000001, 0);
+    objects["Instance246"]["PaddingBottom"] = UDim.new(0.100000001, 0);
+
+    objects["Instance247"]["FontSize"] = Enum.FontSize.Size14;
+    objects["Instance247"]["TextColor3"] = Color3.new(0, 0, 0);
+    objects["Instance247"]["BorderColor3"] = Color3.new(0, 0, 0);
+    objects["Instance247"]["Text"] = "";
+    objects["Instance247"]["AutoButtonColor"] = false;
+    objects["Instance247"]["TextSize"] = 14;
+    objects["Instance247"]["Name"] = "Hover";
+    objects["Instance247"]["BackgroundTransparency"] = 1;
+    objects["Instance247"]["Parent"] = objects["Instance31"];
+    objects["Instance247"]["FontFace"] = Font.new("rbxasset://fonts/families/SourceSansPro.json", Enum.FontWeight.Regular, Enum.FontStyle.Normal);
+    objects["Instance247"]["Size"] = UDim2.new(0.075000003, 0, 1, 0);
+    objects["Instance247"]["BorderSizePixel"] = 0;
+    objects["Instance247"]["BackgroundColor3"] = Color3.new(1, 1, 1);
+
+    objects["Instance248"]["Parent"] = objects["Instance16"];
+    objects["Instance248"]["CornerRadius"] = UDim.new(0.00999999978, 0);
+
+    objects["Instance249"]["Visible"] = false;
+    objects["Instance249"]["BorderColor3"] = Color3.new(0, 0, 0);
+    objects["Instance249"]["Name"] = "Overlay";
+    objects["Instance249"]["Size"] = UDim2.new(1, 0, 1, 0);
+    objects["Instance249"]["Parent"] = objects["Instance16"];
+    objects["Instance249"]["ZIndex"] = 999999999;
+    objects["Instance249"]["BorderSizePixel"] = 0;
+    objects["Instance249"]["BackgroundColor3"] = Color3.new(0.105882, 0.105882, 0.105882);
+
+    objects["Instance250"]["Parent"] = objects["Instance249"];
+    objects["Instance250"]["CornerRadius"] = UDim.new(0.0149999997, 0);
 end;
 
 -- Set modules
@@ -2676,8 +2711,894 @@ local modules do
 
     getfenv().require = require;
 
-    modules[objects["Instance8"]] = function()
-        local script = objects["Instance8"];
+    modules[objects["Instance12"]] = function()
+        local script = objects["Instance12"];
+return function(shared, page)
+    local cons = shared.Connections
+    local hooks = shared.HookFunction -- custom safe hooks
+    local settings = shared.Settings
+
+    local logExample = page.Logs.Log
+    logExample.Visible = false
+
+    local methodColors = {
+        ["GET"] = Color3.fromRGB(85, 255, 127),
+        ["POST"] = Color3.fromRGB(85, 255, 255),
+        ["PUT"] = Color3.fromRGB(200, 200, 200),
+        ["DELETE"] = Color3.fromRGB(255, 0, 0),
+        ["HEADERS"] = Color3.fromRGB(255, 170, 127),
+        ["TRACE"] = Color3.fromRGB(255, 0, 127),
+        ["OPTIONS"] = Color3.fromRGB(100, 100, 100),
+        ["PATCH"] = Color3.fromRGB(170, 170, 0),
+        ["HEAD"] = Color3.fromRGB(85, 85, 127),
+        ["Unknown"] = Color3.fromRGB(85, 0, 255),
+    }
+
+    local function surl(url)
+        local s1 = url:split("://")
+        local protocol = s1[1]
+        local page = (s1[2] or "unknown"):split("/")[1]:split(".")
+        local shortUrl = ""
+
+        if #page > 1 then
+            shortUrl = page[#page - 1] .. "." .. page[#page]
+        else
+            shortUrl = page[1] or "unknown"
+        end
+
+        return protocol, shortUrl
+    end
+
+    local order = ((2 ^ 31) - 1)
+    local selection = shared:AddObject({ })
+    local ignore = shared:AddObject({ })
+    local logSpeed = shared:AddObject({ })
+    local logs = shared:AddObject({ })
+    local limit = 4
+
+    local codeBox = shared.CodeBox(page.TextBox, shared.UseEnv)
+    codeBox.Text = "Welcome to Ketamine - HTTP Spy!\n-- Waiting for HTTP requests --"
+
+    local function addLog(realUrl, method, func, headers, body, result)
+        realUrl = realUrl:gsub("\\", "/")
+
+        local success, protocol, url = pcall(surl, realUrl)
+        if not success then
+            protocol = "unknown"
+            url = realUrl
+        end
+        
+        if ignore[url] or settings.Ignore_spammy_logs and (tonumber(logSpeed[url]) or 0) > limit then return end
+
+        local log = shared:AddButton(logExample:Clone())
+        log.Parent = page.Logs
+        log.Visible = true
+
+        table.insert(logs, 1, log)
+        while #logs > math.max(settings.Maximum_log_amount * 5, 1) do
+            local log = table.remove(logs, #logs)
+            log:Destroy()
+        end
+
+        local shortUrl = url
+        if #shortUrl > 13 then
+            shortUrl = shortUrl:sub(1, 11) .. "..."
+        end
+
+        log.Contents.Label.Text = shortUrl
+        log.LayoutOrder = order
+        log.Contents.Frame.BackgroundColor3 = methodColors[method] or methodColors.Unknown
+        log.Contents.Type.BackgroundColor3 = protocol == "http" and Color3.fromRGB(255, 85, 127) or protocol ~= "https" and Color3.fromRGB(85, 85, 255) or Color3.new()
+        if protocol ~= "https" then
+            log.Contents.Type.Visible = true
+        end
+
+        cons[#cons + 1] = log.MouseButton1Click:Connect(function()
+            for _, log in logs do
+                if log and log.Parent then
+                    log.Contents.Selection.BackgroundTransparency = 1
+                end
+            end
+
+            log.Contents.Selection.BackgroundTransparency = 0.9
+
+            selection[1] = realUrl
+            selection[2] = url
+            selection[3] = protocol
+            selection[4] = func
+            selection[5] = method
+            selection[6] = headers
+            selection[7] = body
+            selection[8] = result
+
+            local s = url:split("/")
+
+            codeBox.Text = "Method: " .. (method or "Unknown") .. "\nProtocol: " .. (protocol or "Unknown") .. "\nUrl: \"" .. s[1] .. "\"\n" .. (s[2] and "Path: \"" .. table.concat(s, "/", 2) .. "\"\n" or "") .. "Function: " .. func .. "\n\n-- Click buttons under to get more info --"
+        end)
+
+        order -= 1
+    end
+
+    local hooksAvailable = type(getfenv().hookmetamethod) == "function"
+        and type(getfenv().hookfunction) == "function"
+        and type(getfenv().getnamecallmethod) == "function"
+
+    local http = game:GetService("HttpService")
+
+    local genv = (getfenv().getgenv or getfenv)()
+    if hooksAvailable then
+        task.spawn(function()
+            if genv.request then
+                hooks.HookFunction(genv.request, function(old, options)
+                    local result = shared:AddObject({ })
+                    task.spawn(addLog, options.Url, options.Method or "GET", "request", options.Headers, options.Body, result)
+
+                    result[1] = old(options)
+                    return result[1]
+                end)
+            end
+
+            local getnamecall = getfenv().getnamecallmethod
+
+            hooks.HookMetaMethod("__namecall", function(old, self, ...)
+                if typeof(self) ~= "Instance" then
+                    return old(self, ...)
+                end
+
+                local method = getnamecall()
+                method = method:sub(1, 1):upper() .. method:sub(2)
+
+                if self == game and (method == "HttpGet" or method == "HttpGetAsync") then -- I've planned to add support for RequestInternal and requests from HttpService, but nah
+                    local result = shared:AddObject({ })
+                    task.spawn(addLog, select(1, ...), "GET", "game:HttpGet", select(3, ...), nil, result)
+
+                    result[1] = old(self, ...)
+                    return result[1]
+                elseif self == game and (method == "HttpPost" or method == "HttpPostAsync") then
+                    local result = shared:AddObject({ })
+                    task.spawn(addLog, select(1, ...), "POST", "game:HttpPost", select(5, ...), select(2, ...), result)
+
+                    result[1] = old(self, ...)
+                    return result[1]
+                end
+
+                return old(self, ...)
+            end)
+        end)
+    else
+        local originalReq = genv.request
+        if originalReq then
+            genv.request = function(options)
+                local result = shared:AddObject({ })
+                task.spawn(addLog, options.Url, options.Method, "request", options.Headers, options.Body, result)
+
+                result[1] = originalReq(options)
+                return result[1]
+            end
+
+            shared.OnCloseEvent:Connect(function()
+                genv.request = originalReq
+            end)
+        end
+    end
+
+    local button = page.Buttons.Button
+    button.Visible = false
+
+    local function addButton(text, callback)
+        local button = button:Clone()
+        button.Parent = page.Buttons
+        button.Visible = true
+        button.Name = text
+
+        if typeof(text) == "string" and text ~= "" then
+            shared:AddButton(button)
+
+            button.Separator:Destroy()
+            button.Contents.Label.Text = text
+            cons[#cons + 1] = button.MouseButton1Click:Connect(function()
+                callback(button)
+            end)
+        else
+            button.Contents:Destroy()
+            button.Separator.Visible = true
+        end
+
+        return button
+    end
+
+    local clipboard = shared.Clipboard
+    addButton("Copy text to clipboard", function()
+        clipboard(codeBox.Text)
+    end)
+
+    addButton("Copy url to clipboard", function()
+        if selection[1] then
+            clipboard(selection[1])
+        end
+    end)
+
+    addButton("Clear logs", function()
+        for _, log in logs do
+            log:Destroy()
+        end
+
+        table.clear(logs)
+    end)
+
+    addButton("Get request headers", function()
+        if selection[6] then
+            codeBox.Text = shared.ToString.ToString(selection[6])
+        end
+    end)
+    addButton("Get request body", function()
+        if selection[7] then
+            codeBox.Text = shared.ToString.ToString(selection[7])
+        end
+    end)
+    addButton("Get request result", function()
+        if selection[8] and selection[8][1] then
+            codeBox.Text = typeof(selection[8][1]) ~= "string" and shared.ToString.ToString(selection[8][1]) or selection[8][1]
+        end
+    end)
+    addButton("Get body as lua table", function()
+        if selection[7] then
+            codeBox.Text = shared.ToString.ToString(http:JSONDecode(selection[7]))
+        end
+    end)
+
+    addButton("Generate code", function()
+        codeBox.Text = "local result = request({ -- " .. selection[4] .. "\n\t[\"Url\"] = \"" .. selection[1] .. "\",\n\t[\"Method\"] = \"" .. selection[5] .. "\",\n\t[\"Headers\"] = " .. shared.ToString.ToString(selection[6], 1) .. "\",\n\t[\"Body\"] = " .. shared.ToString.ToString(selection[7], 1) .. "\n})"
+    end)
+end
+    end;
+
+    modules[objects["Instance6"]] = function()
+        local script = objects["Instance6"];
+local function normalize(str)
+    return (str:gsub("\n", "\\n"):gsub("\t", "\\t"):gsub("\r", "\\r"):gsub("\"", "\\\""):gsub("\0", "\\0"))
+end
+
+local function escapePattern(str)
+    return str:gsub("%%", "%%%%")
+        :gsub("%.", "%%.")
+        :gsub("%?", "%%?")
+        :gsub("%!", "%%!")
+        :gsub("%,", "%%,")
+        :gsub("%[", "%%[")
+        :gsub("%]", "%%]")
+        :gsub("%(", "%%(")
+        :gsub("%)", "%%)")
+        :gsub("%{", "%%{")
+        :gsub("%}", "%%}")
+end
+
+local alphabet = "QWERTYUIOPASDFGHJKLZXCVBNMqwertyuiopasdfghjklzxcvbnm_1234567890"
+local function isValidSymbol(s)
+    return alphabet:find(escapePattern(s)) ~= nil
+end
+
+local function isValidVariableName(var)
+    var = tostring(var)
+    if not var or tonumber(var:sub(1,1)) then
+        return false
+    end
+
+    for char in var:gmatch(".") do
+        if not isValidSymbol(char) then
+            return false
+        end
+    end
+
+    return true
+end
+
+local function getPath(obj, normalNil, dontGetService)
+    if not obj then
+        return "nil"
+    elseif obj == workspace.Parent or obj == game then
+        return "game"
+    elseif obj and not obj.Parent then
+        local env = getfenv()
+        local name = env.getnilinstances and "getnilinstances" or env.getnils and "getnils"
+        if not normalNil and name then
+            return ("(function()\n  local function getNil(objType, objName)\n    for _, v in %s() do\n      if v.ClassName == objType and v.Name == objName then\n        return v\n      end\n    end\n  end\n  return getNil(\"%s\", \"%s\")\nend)()")
+                :format(name, obj.ClassName, normalize(obj.Name))
+        elseif normalNil then
+            return "(nil)[\"" .. normalize(obj.Name) .. "\"]"
+        else
+            return "(nil)[\"" .. normalize(obj.Name) .. "\"] --[[ Object is parented to nil; getnilinstances does not exist ]]"
+        end
+    end
+
+    local path = ""
+    while obj.Parent do
+        if (obj.Parent == game or obj.Parent == workspace.Parent) and not dontGetService and pcall(game.GetService, game, obj.ClassName) and game:GetService(obj.ClassName) then
+            path = "game:GetService(\"" .. obj.ClassName:gsub(" ", "") .. "\")" .. path
+            break
+        elseif (obj.Parent == game or obj.Parent == workspace.Parent) and obj == workspace or obj == game:GetService("Workspace") then
+            path = "workspace" .. path
+            break
+        end
+
+        local siblings = obj.Parent:GetChildren()
+        local sameNameCount = 0
+        local index = nil
+
+        for i, v in siblings do
+            if v.Name == obj.Name then
+                sameNameCount = sameNameCount + 1
+                if v == obj then
+                    index = i
+                end
+            end
+        end
+
+        if sameNameCount > 1 and index and index ~= 1 and not dontGetService then
+            path = ":GetChildren()[" .. index .. "]" .. path
+        else
+            local notInstance = typeof(obj.Parent[obj.Name]) ~= "Instance"
+            if not isValidVariableName(obj.Name) or notInstance then
+                if notInstance then
+                    path = ":FindFirstChild(\"" .. normalize(obj.Name) .. "\")" .. path
+                else
+                    path = "[\"" .. normalize(obj.Name) .. "\"]"
+                end
+            else
+                path = "." .. obj.Name .. path
+            end
+        end
+
+        obj = obj.Parent
+    end
+
+    if not obj.Parent then
+        path = "game" .. path
+    end
+
+    return (path:gsub("game:GetService%(\"Workspace\"%)", "workspace"))
+end
+
+local http = game:GetService("HttpService")
+local tostr
+local function convertArg(arg, indent)
+    local t = typeof(arg)
+    if t == "string" then
+        local success, decoded = pcall(http.JSONDecode, http, arg)
+        if success and not tonumber(arg) then
+            return "game:GetService(\"HttpService\"):JSONEncode(" .. tostr(decoded) .. ")"
+        else
+            if #arg == 38 and arg:sub(1, 1) == "{" and arg:sub(-1) == "}" and arg:sub(10, 10) == "-" and arg:sub(15, 15) == "-" and arg:sub(20, 20) == "-" and arg:sub(25, 25) == "-" then
+                return "game:GetService(\"HttpService\"):GenerateGUID(true) --[[" .. arg .. "]]"
+            elseif #arg == 36 and arg:sub(9, 9) == "-" and arg:sub(14, 14) == "-" and arg:sub(19, 19) == "-" and arg:sub(24, 24) == "-" then
+                return "game:GetService(\"HttpService\"):GenerateGUID(false) --[[" .. arg .. "]]"
+            end
+            
+            return "\"" .. normalize(arg) .. "\""
+        end
+    elseif t == "number" then
+        if arg == math.huge then
+            return "math.huge"
+        elseif arg == -math.huge then
+            return "-math.huge"
+        elseif arg ~= arg then
+            return "(0 / 0) -- [[ nan ]]"
+        elseif math.abs(tick() - arg) <= 2.5 then
+            if math.floor(arg) == arg then
+                return "os.time() --[[" .. arg .. "]]"
+            else
+                return "tick() --[[" .. arg .. "]]"
+            end
+        elseif math.abs(workspace:GetServerTimeNow() - arg) <= 2.5 then
+            return "workspace:GetServerTimeNow() --[[" .. arg .. "]]"
+        elseif math.abs(os.clock() - arg) <= 2.5 then
+            return "os.clock() --[[" .. arg .. "]]"
+        elseif math.abs(time() - arg) <= 2.5 and math.floor(arg) ~= arg then
+            return "time() --[[" .. arg .. "]]"
+        end
+        
+        return tostring(arg)
+    elseif t == "boolean" or t == "nil" then
+        return tostring(arg)
+    elseif t == "Color3" then
+        local r255 = arg.R * 255
+        local g255 = arg.G * 255
+        local b255 = arg.B * 255
+
+        if math.abs(r255 - math.floor(r255 + 0.5)) < 1e-6 and math.abs(g255 - math.floor(g255 + 0.5)) < 1e-6 and math.abs(b255 - math.floor(b255 + 0.5)) < 1e-6 then
+            return string.format("Color3.fromRGB(%d, %d, %d)", math.round(r255), math.round(g255), math.round(b255))
+        else
+            return string.format("Color3.new(%f, %f, %f)", arg.R, arg.G, arg.B)
+        end
+    elseif t == "BrickColor" then
+        return "BrickColor.new(\"" .. arg.Name .. "\")"
+    elseif t == "UDim" then
+        if arg.Scale == 0 and arg.Offset == 0 then
+            return "UDim.new()"
+        end
+        return string.format("UDim.new(%f, %d)", arg.Scale, arg.Offset)
+    elseif t == "UDim2" then
+        if arg.X.Scale == 0 and arg.X.Offset == 0 and arg.Y.Scale == 0 and arg.Y.Offset == 0 then
+            return "UDim2.new()"
+        elseif arg.X.Scale == 0 and arg.Y.Scale == 0 then
+            return string.format("UDim2.fromOffset(%d, %d)", arg.X.Offset, arg.Y.Offset)
+        elseif arg.X.Offset == 0 and arg.Y.Offset == 0 then
+            return string.format("UDim2.fromScale(%f, %f)", arg.X.Scale, arg.Y.Scale)
+        else
+            return string.format("UDim2.new(%f, %d, %f, %d)", arg.X.Scale, arg.X.Offset, arg.Y.Scale, arg.Y.Offset)
+        end
+    elseif t == "Ray" then
+        return "Ray.new(" .. convertArg(arg.Origin, indent) .. ", " .. convertArg(arg.Direction, indent) .. ")"
+    elseif t == "EnumItem" then
+        return "Enum." .. arg.EnumType.Name .. "." .. arg.Name
+    elseif t == "Enum" then
+        return "Enum." .. arg.Name
+    elseif t == "NumberRange" then
+        return string.format("NumberRange.new(%f, %f)", arg.Min, arg.Max)
+    elseif t == "NumberSequenceKeypoint" then
+        return string.format("NumberSequenceKeypoint.new(%f, %f, %f)", arg.Time, arg.Value, arg.Envelope)
+    elseif t == "ColorSequenceKeypoint" then
+        return string.format("ColorSequenceKeypoint.new(%f, Color3.new(%f, %f, %f))", arg.Time, arg.Value.R, arg.Value.G, arg.Value.B)
+    elseif t == "PhysicalProperties" then
+        return string.format("PhysicalProperties.new(%f, %f, %f, %f, %f)", arg.Density, arg.Friction, arg.Elasticity, arg.FrictionWeight, arg.ElasticityWeight)
+    elseif t == "Rect" then
+        return string.format("Rect.new(Vector2.new(%f, %f), Vector2.new(%f, %f))", arg.Min.X, arg.Min.Y, arg.Max.X, arg.Max.Y)
+    elseif t == "Region3" then
+        return string.format("Region3.new(Vector3.new(%f, %f, %f), Vector3.new(%f, %f, %f))", arg.CFrame.Position.X, arg.CFrame.Position.Y, arg.CFrame.Position.Z, arg.CFrame.Position.X, arg.CFrame.Position.Y, arg.CFrame.Position.Z)
+    elseif t == "Region3int16" then
+        return string.format("Region3int16.new(Vector3int16.new(%d, %d, %d), Vector3int16.new(%d, %d, %d))", arg.Min.X, arg.Min.Y, arg.Min.Z, arg.Max.X, arg.Max.Y, arg.Max.Z)
+    elseif t == "TweenInfo" then
+        return string.format("TweenInfo.new(%f, Enum.EasingStyle.%s, Enum.EasingDirection.%s, %d, %s, %f)", arg.Time, arg.EasingStyle.Name, arg.EasingDirection.Name, arg.RepeatCount, tostring(arg.Reverses), arg.DelayTime)
+    elseif t == "function" then
+        return "function() end"
+    elseif t == "thread" then
+        return "coroutine.create(function() --[[ Unable to get content ]] end)"
+    elseif t == "userdata" then
+        return "newproxy()"
+    elseif t == "buffer" then
+        local s1 = buffer.tostring(arg)
+        local s2 = ""
+        local allZeros = true
+        
+        for i = 1, #s1 do
+            local v = s1:sub(i, i)
+            local byte = string.byte(v)
+            
+            if byte ~= 0 then
+                allZeros = false
+            end
+            
+            if byte <= 31 or byte >= 127 then
+                if byte == 10 then
+                    s2 ..= "\\n"
+                elseif byte == 13 then
+                    s2 ..= "\\r"
+                elseif byte == 9 then
+                    s2 ..= "\\t"
+                else
+                    s2 ..= "\\" .. byte
+                end
+            else
+                s2 ..= v:gsub("\"", "\\\"")
+            end
+        end
+        
+        if allZeros then
+            return "buffer.create(" .. #s1 .. ")"
+        end
+        
+        return "buffer.fromstring(\"" .. s2 .. "\")"
+    elseif t == "Instance" then
+        return getPath(arg)
+    elseif t == "table" then
+        return tostr(arg, indent)
+    else
+        local obj = getfenv()[t]
+
+        if typeof(obj) == "table" and obj.new then
+            if pcall(obj.new) and tostring(obj.new()) == tostring(arg) then
+                return t .. ".new()"
+            end
+
+            return t .. ".new(" .. tostring(arg) .. ")"
+        else
+            return "--[[ unknown type: " .. t .. "; values: " .. tostring(arg):gsub("%]%]", "] ]") .. " ]]"
+        end
+    end
+end
+
+local function isArray(tbl)
+    if typeof(tbl) ~= "table" then
+        return false
+    end
+    
+    local isArray = true
+    local allValid = true
+    local count = 0
+
+    for k in tbl do
+        if typeof(k) ~= "number" or math.floor(k) ~= k then
+            isArray = false
+            break
+        end
+
+        count = math.max(count, k)
+    end
+
+    if isArray then
+        isArray = #tbl == count
+        allValid = false
+
+        if isArray then
+            for i = 1, count do
+                if tbl[i] == nil then
+                    isArray = false
+                    break
+                end
+            end
+        end
+    else
+        for k in tbl do
+            if typeof(k) ~= "string" or not isValidVariableName(k) then
+                allValid = false
+                break
+            end
+        end
+    end
+    
+    return isArray, allValid, count
+end
+
+function tostr(tbl, indent)
+    indent = indent or 0
+    
+    local indentStr = string.rep("    ", math.max(indent, 0))
+    local indentStrNext = string.rep("    ", math.max(indent, 0) + 1)
+
+    if typeof(tbl) ~= "table" then
+        return convertArg(tbl, math.max(indent, 0))
+    end
+
+    local isArray, allValid, count = isArray(tbl)
+
+    if isArray then
+        if count == 0 then
+            return "{ }"
+        end
+
+        local result = "{" .. (indent == -1 and "" or " ")
+        for i = 1, count do
+            result ..= (indent == -1 and "\n" .. indentStrNext or "") .. tostr(tbl[i], math.max(indent, 0) + 1)
+            if i < count then
+                result ..= ","
+            end
+            result ..= indent == -1 and "" or " "
+        end
+
+        return result .. (indent == -1 and "\n" or "") .. "}"
+    else
+        local result = "{\n"
+        local first = true
+
+        for k, v in tbl do
+            if not first then
+                result ..= ",\n"
+            end
+
+            first = false
+            result ..= indentStrNext .. (allValid and k or "[" .. tostr(k, math.max(indent, 0) + 1) .. "]") .. " = " .. tostr(v, math.max(indent, 0) + 1)
+        end
+
+        return result .. "\n" .. indentStr .. "}"
+    end
+end
+
+local function createArgs(tbl)
+    local isArray = isArray(tbl)
+    local str = tostr(tbl)
+    
+    if isArray then
+        if #tbl == 0 then
+            return "()"
+        end
+        
+        return "(" .. str:sub(3):sub(1, #str - 4) .. ")"
+    else
+        return (("(" .. str .. ")"):gsub("%(nil%)", "()"))
+    end
+end
+
+return {
+    ToString = tostr,
+    CreateArguments = createArgs,
+    EscapePattern = escapePattern,
+    GetPath = getPath
+}
+    end;
+
+    modules[objects["Instance3"]] = function()
+        local script = objects["Instance3"];
+local tweenService = game:GetService("TweenService")
+local http = game:GetService("HttpService")
+
+local event = Instance.new("BindableEvent", script)
+event.Name = "SettingChange"
+
+local metatable
+
+local settings = {
+    {"SEPARATOR", "UI Settings"},
+    {"Transparent", false, function(state)
+        tweenService:Create(script.Parent.Parent.Main, TweenInfo.new(1), {BackgroundTransparency = not state and 0 or metatable.Has_shadow and 0.2 or 0.05}):Play()
+    end},
+    {"Rounded_corners", false, function(state)
+        tweenService:Create(script.Parent.Parent.Main.UICorner, TweenInfo.new(1), {CornerRadius = UDim.new(state and 0.025 or 0.01)}):Play()
+    end},
+    {"Always_show_side_panel", {1, 1, 3}, function(state, instance)
+        if instance then
+            instance.Label.Text = state == 1 and "Dynamic side panel" or state == 2 and "Never show side panel" or "Always show side panel"
+        end
+    end},
+    {"Window_scale", {100, 75, 155}},
+    {"SEPARATOR", "UI Shadow Settings"},
+    {"Has_shadow", true, function(state)
+        metatable.Transparent = metatable.Transparent
+        tweenService:Create(script.Parent.Parent.Shadow, TweenInfo.new(state and 0.75 or 1.25), {ImageTransparency = state and 0.2 or 1}):Play()
+    end},
+    {"Shadow_centered", false, function(state)
+        script.Parent.Parent.Shadow:TweenPosition(state and UDim2.fromScale(0.5, 0.5) or UDim2.fromScale(0.515, 0.525), Enum.EasingDirection.Out, Enum.EasingStyle.Quad, 0.5, true)
+    end},
+    {"SEPARATOR", "Log Settings"},
+    {"Log_executor_function_calls", {1, 1, 3}, function(state, instance)
+        if instance then
+            instance.Label.Text = state == 1 and "Log calls called only by game scripts" or state == 2 and "Log calls called by game & executor scripts" or "Log calls called only by executor scripts"
+        end
+    end},
+    {"Create_arguments_as_variable", false},
+    {"Create_event_as_variable", false},
+    {"Maximum_log_amount", {10, 0, 20}, function(state, instance)
+        if instance then
+            instance.Label.Text = "Maximum log amount [ " .. math.max(1, state * 5) .. " ]"
+        end
+    end},
+    {"Decompile_limit", {1, 1, 50}, function(state, instance)
+        if instance then
+            instance.Label.Text = "Decompile limit [ " .. state .. " / 50 scripts at the same time ]"
+        end
+    end},
+    {"Ignore_spammy_logs", true}
+}
+
+local function find(index)
+    for _, v in settings do
+        if v[1] == index then
+            return v
+        end
+    end
+    return nil
+end
+
+local files = getfenv().writefile and getfenv().readfile and getfenv().makefolder
+metatable = setmetatable({ }, {
+    __index = function(self, index)
+        index = index:sub(1,1):upper() .. index:sub(2)
+
+        if index == "Values" then
+            local vals = { }
+            
+            for _, v in settings do
+                vals[#vals+1] = { v[1], v[2] }
+            end
+            
+            return vals
+        elseif index == "Event" or index == "Signal" or index == "Changed" then
+            return event.Event
+        elseif index == "Find" then
+            return find
+        else
+            local setting = find(index)
+            if setting then
+                return typeof(setting[2]) == "table" and setting[2][1] or setting[2]
+            else
+                error("Unable to get value for setting: " .. tostring(index), 0)
+            end
+        end
+    end,
+    __newindex = function(self, index, value)
+        index = index:sub(1, 1):upper() .. index:sub(2)
+        local setting = find(index)
+        assert(setting, "Setting not found: " .. tostring(index))
+        assert(typeof(value) == typeof(setting[2]) or typeof(value) == "number" and typeof(setting[2]) == "table", ("Type mismatch for setting %s: expected %s got %s"):format(index, typeof(setting[2]), typeof(value)))
+
+        local val = typeof(value) == "table" and value[1] or value
+
+        setting[2] = value
+        event:Fire(index, val)
+
+        if setting[3] then
+            task.spawn(setting[3], val, setting[4])
+        end
+        
+        local auto = find("Auto_load_settings")
+        if auto and auto[2] then
+            if files then
+                local saveFile = { }
+                for _, v in self.Values do
+                    local i = v[1]
+                    local v = v[2]
+
+                    if i ~= "SEPARATOR" then
+                        saveFile[i] = v
+                    end
+                end
+
+                task.spawn(getfenv().writefile, "CDT/Settings.json", http:JSONEncode(saveFile))
+            end
+        end
+    end
+})
+
+if files then
+    getfenv().makefolder("CDT")
+    getfenv().writefile("CDT/CSpy.txt", "Yeah, If you wonder what CDT is, it is CSpy")
+
+    table.insert(settings, 1, {"Auto_load_settings", false, function(state)
+        task.spawn(getfenv().writefile, "CDT/Settings.bool", state and "1" or "0")
+
+        if state then
+            local success, json = pcall(getfenv().readfile, "CDT/Settings.json")
+            if success then
+                for index, value in http:JSONDecode(json) do
+                    if index ~= "Auto_load_settings" then
+                        metatable[index] = typeof(value) == "table" and value[1] or value
+                    end
+                end
+            end
+        end
+    end})
+    
+    table.insert(settings, 1, {"SEPARATOR", "Saves"})
+    
+    local success, value = pcall(getfenv().readfile, "CDT/Settings.bool")
+    if success then
+        task.delay(5, function()
+            metatable.Auto_load_settings = value == "1"
+        end)
+    end
+end
+
+return metatable
+    end;
+
+    modules[objects["Instance4"]] = function()
+        local script = objects["Instance4"];
+local global = typeof(getfenv().getgenv) == "function" and typeof(getfenv().getgenv()) == "table" and getfenv().getgenv() or _G -- I never made normal require in my plugin, so thats a reason why I made that
+local idx = "__CSpyShared"
+
+if global[idx] then
+    return global[idx]
+end
+
+local useEnv = getfenv().getgenv ~= nil
+if useEnv then
+    local found = {
+        ["print"] = false,
+        ["getgenv"] = false,
+        ["vector"] = false,
+        ["error"] = false,
+        ["loadstring"] = false
+    }
+
+    for i, _ in getfenv().getgenv() do
+        if typeof(found[i]) ~= "nil" then
+            found[i] = true
+        end
+    end
+
+    for _, v in found do
+        if not v then
+            useEnv = false
+            break
+        end
+    end
+end
+
+local function pressKey(isDown, key)
+    game:GetService("VirtualInputManager"):SendKeyEvent(isDown, Enum.KeyCode[key], false, game)
+    for i=1, 2 do game:GetService("RunService").RenderStepped:Wait() end
+end
+
+local shared = {
+    Version = "BETA",
+    Connections = { },
+    SidePanelEvent = Instance.new("BindableEvent", script),
+    Settings = require(script.Parent.Settings),
+    CodeBox = require(script.Parent.CodeBox),
+    Global = global,
+    _idx = idx,
+    UseEnv = useEnv and getfenv().getgenv,
+    OnCloseEvent = Instance.new("BindableEvent", script),
+    ToString = require(script.Parent.ToString),
+    CSpyObjects = { },
+    AddObject = function(self, tbl)
+        if (typeof(tbl) == "table" or typeof(tbl) == "function") and not self:IsCSpy(tbl) then
+            table.insert(self.CSpyObjects, tbl)
+            if typeof(tbl) == "table" then
+                for i, v in tbl do
+                    self:AddObject(i) -- who knows, mb "i" is not a number or string
+                    self:AddObject(v)
+                end
+            end
+        end
+        
+        return tbl
+    end,
+    Clipboard = getfenv().toclipboard or getfenv().setclipboard or function(text)
+        local ui = Instance.new("ScreenGui", game:GetService("CoreGui"))
+        task.delay(1, ui.Destroy, ui)
+        
+        local tb = Instance.new("TextBox", ui)
+        tb.Size = UDim2.fromOffset(1, 1)
+        tb.BackgroundTransparency = 1
+        tb.TextTransparency = 1
+        tb.Text = text
+        
+        tb:CaptureFocus()
+
+        for i=1, 2 do game:GetService("RunService").RenderStepped:Wait() end
+        pressKey(true, "LeftControl")
+        pressKey(true, "A")
+        pressKey(false, "A")
+        pressKey(true, "C")
+        pressKey(false, "C")
+        pressKey(false, "LeftControl")
+        
+        tb:ReleaseFocus()
+    end,
+    IsCSpy = function(self, obj)
+        return table.find(self.CSpyObjects, obj)
+    end,
+    AddButton = function(self, button)
+        local cont = button.Contents
+        local source = cont.BackgroundTransparency
+        local In = false
+
+        button.MouseEnter:Connect(function()
+            In = true
+            cont.BackgroundTransparency = source + 0.025
+        end)
+        button.MouseLeave:Connect(function()
+            In = false
+            cont.BackgroundTransparency = source
+        end)
+        button.MouseButton1Down:Connect(function()
+            cont.BackgroundTransparency = source - 0.05
+        end)
+        button.MouseButton1Up:Connect(function()
+            cont.BackgroundTransparency = source + (In and 0.025 or 0)
+        end)
+        
+        return button
+    end
+}
+
+shared:AddObject(shared.Connections)
+shared:AddObject(shared.Settings)
+shared:AddObject(shared.ToString)
+shared:AddObject(shared.CodeBox)
+shared:AddObject(shared.CSpyObjects)
+
+shared.HookFunction = require(script.Parent.HookFunction)(shared)
+shared.SidePanelEvent.Name = "SidePanel"
+shared.OnCloseEvent.Name = "OnClose"
+
+global[idx] = shared
+
+return shared
+    end;
+
+    modules[objects["Instance10"]] = function()
+        local script = objects["Instance10"];
 return function(shared, page)
     local cons = shared.Connections
     local hooks = shared.HookFunction -- custom safe hooks
@@ -2697,7 +3618,7 @@ return function(shared, page)
         and type(getfenv().getnamecallmethod) == "function"
     
     if not hooksAvailable then
-        codeBox.Text = "Welcome to Ketamine - Remote Spy!\n-- Waiting for Remotes --\n\n--[[\n    Why Outcoming mode is unavailable?\n\n    -- -- -- -- --\n\n    Your executor is missing one or more of these functions:\n    hookmetamethod, hookfunction, getnamecallmethod\n]]--"
+        codeBox.Text = "Welcome to CSpy - Remote Spy!\n-- Waiting for Remotes --\n\n--[[\n    Why Outcoming mode is unavailable?\n\n    -- -- -- -- --\n\n    Your executor is missing one or more of these functions:\n    hookmetamethod, hookfunction, getnamecallmethod\n]]--"
     end
 
     local ptype = hooksAvailable -- true
@@ -2815,6 +3736,8 @@ return function(shared, page)
             selection[3] = args
             selection[4] = got
             selection[5] = caller
+
+            print(selection[5])
             
             codeBox.Text = sArgs
         end)
@@ -3217,498 +4140,209 @@ return function(shared, page)
 end
     end;
 
-    modules[objects["Instance12"]] = function()
-        local script = objects["Instance12"];
-local global = typeof(getfenv().getgenv) == "function" and typeof(getfenv().getgenv()) == "table" and getfenv().getgenv() or _G -- I never made normal require in my plugin, so thats a reason why I made that
-local idx = "__CSpyShared"
+    modules[objects["Instance13"]] = function()
+        local script = objects["Instance13"];
+return function(shared, page)
+    local cons = shared.Connections
+    local hooks = shared.HookFunction -- custom safe hooks
+    local settings = shared.Settings
 
-if global[idx] then
-    return global[idx]
-end
+    local codeBox = shared.CodeBox(page.Contents.View.Editor.TextBox, shared.UseEnv)
+    codeBox.Text = ""
 
-local useEnv = getfenv().getgenv ~= nil
-if useEnv then
-    local found = {
-        ["print"] = false,
-        ["getgenv"] = false,
-        ["vector"] = false,
-        ["error"] = false,
-        ["loadstring"] = false
+    local gsbc = getfenv().getscriptbytecode or function(scr)
+        return "\0"
+    end
+
+    local badDecompile = function(scr)
+        return-- scr.Name .. " " ..
+            "-- \"decompile\" does not exist or failed"
+    end
+
+    local _decompile = getfenv().decompile or badDecompile
+    local decompiling = 0
+    
+    local decompile = function(scr)
+        while task.wait() do
+            if decompiling <= settings.Decompile_limit then
+                decompiling += 1
+                local decompiled = _decompile(scr)
+                decompiling -= 1
+                
+                return decompiled
+            end
+        end
+    end
+
+    local decompiled = { }
+    local scripts, decompil = 1, 0
+
+    local stuff = {
+        ModuleScript = {
+            Color3.fromRGB(165, 105, 255),
+            "rbxassetid://72574623675660"
+        },
+
+        LocalScript = {
+            Color3.fromRGB(43, 177, 255),
+            "rbxassetid://120549633847891"
+        }
     }
 
-    for i, _ in getfenv().getgenv() do
-        if typeof(found[i]) ~= "nil" then
-            found[i] = true
+    local log = page.Contents.View.ScanResults.List.Log
+
+    local path
+    local logs = { }
+
+    local function keywordScan(scr, keywords)
+        local _path = scr:IsDescendantOf(game) and "game." .. scr:GetFullName() or "(nil)[\"" .. scr.Name:gsub("\"", "\\\"") .. "\")"
+        local src = _path .. "\n" .. decompiled[scr]:lower()
+        local matches = 0
+
+        for _, keyword in keywords do
+            matches += (#src:split(keyword)) - 1
+        end
+
+        if matches > 0 then
+            local tbl = (stuff[scr.ClassName] or stuff.LocalScript)
+            local log = shared:AddButton(log:Clone())
+            log.Parent = page.Contents.View.ScanResults.List
+            log.Visible = true
+            log.Contents.ScriptName.Text = scr.Name
+            log.Contents.ScriptPath.Text = _path
+            log.Contents.Matches.Text = matches
+            log.LayoutOrder = matches
+            log.Contents.Matches.TextColor3 = tbl[1]
+            log.Contents.Icon.Image = tbl[2]
+            logs[#logs + 1] = log
+
+            cons[#cons + 1] = log.MouseButton1Click:Connect(function()
+                page.Contents.View.ScanResults.Visible = false
+                page.Contents.View.Editor.Visible = true
+
+                codeBox.Text = decompiled[scr]
+                path = _path
+            end)
+
+            cons[#cons + 1] = scr.Destroying:Connect(function()
+                table.remove(logs, table.find(logs, log))
+                log:Destroy()
+            end)
         end
     end
 
-    for _, v in found do
-        if not v then
-            useEnv = false
-            break
-        end
-    end
-end
+    task.spawn(function()
+        local function dec(scr)
+            if (game:GetService("CoreGui") and not scr:IsDescendantOf(game:GetService("CoreGui")) and not scr:IsDescendantOf(game:GetService("CorePackages")) or not game:GetService("CoreGui")) and (scr:IsA("LocalScript") or scr:IsA("ModuleScript") or scr:IsA("Script") and scr.RunContext == Enum.RunContext.Client) and not decompiled[scr] and #gsbc(scr) ~= 0 then
+                scripts += 1
+                local decompi = decompile(scr)
+                decompiled[scr] = decompi
+                decompil += 1
 
-local function pressKey(isDown, key)
-    game:GetService("VirtualInputManager"):SendKeyEvent(isDown, Enum.KeyCode[key], false, game)
-    for i=1, 2 do game:GetService("RunService").RenderStepped:Wait() end
-end
+                local text = page.Contents.SearchBar.Field.TextBox.Text:lower()
 
-local shared = {
-    Version = "BETA",
-    Connections = { },
-    SidePanelEvent = Instance.new("BindableEvent", script),
-    Settings = require(script.Parent.Settings),
-    CodeBox = require(script.Parent.CodeBox),
-    Global = global,
-    _idx = idx,
-    UseEnv = useEnv and getfenv().getgenv,
-    OnCloseEvent = Instance.new("BindableEvent", script),
-    ToString = require(script.Parent.ToString),
-    CSpyObjects = { },
-    AddObject = function(self, tbl)
-        if (typeof(tbl) == "table" or typeof(tbl) == "function") and not self:IsCSpy(tbl) then
-            table.insert(self.CSpyObjects, tbl)
-            if typeof(tbl) == "table" then
-                for i, v in tbl do
-                    self:AddObject(i) -- who knows, mb "i" is not a number or string
-                    self:AddObject(v)
+                if text:gsub(" ", ""):gsub("\t", ""):gsub("\r", ""):gsub("\n", "") ~= "" then
+                    keywordScan(scr, text:gsub("; ", ";"):split(";"))
                 end
             end
         end
+
+        local started = false
+        local function start()
+            if started then return end
+            started = true
+            
+            task.spawn(function()
+                while scripts ~= decompil do
+                    local max = math.max(#tostring(scripts), #tostring(decompil))
+                    page.Loading.TextLabel.Text = "[ " .. string.format("%0" .. max .. "d", scripts) .. " / " .. string.format("%0" .. max .. "d", decompil) .. " ] The tool is loading..."
+                    page.Loading.CanvasGroup.Frame.Position = UDim2.fromScale((decompil / scripts) - 1, 0)
+
+                    task.wait()
+                end
+
+                page.Loading:TweenPosition(UDim2.fromScale(0, 1), nil, nil, 1, true)
+                page.Contents:TweenSize(UDim2.fromScale(1, 1), nil, nil, 1, true)
+
+                task.wait(1)
+
+                page.Loading:Destroy()
+            end)
+
+            page.Loading.Start.Visible = false
+            page.Loading.TextLabel.Visible = true
+            page.Loading.CanvasGroup.Visible = true
+            
+            for i, v in (getfenv().getnilinstances and getfenv().getnilinstances() or { }) do
+                task.spawn(dec, v)
+
+                if i % 350 == 0 then
+                    task.wait()
+                end
+            end
+
+            for i, v in (getfenv().getinstances and getfenv().getinstances() or { }) do
+                task.spawn(dec, v)
+
+                if i % 350 == 0 then
+                    task.wait()
+                end
+            end
+
+            for i, v in game:GetDescendants() do
+                task.spawn(dec, v)
+
+                if i % 350 == 0 then
+                    task.wait()
+                end
+            end
+
+            cons[#cons + 1] = game.DescendantAdded:Connect(dec)
+
+            task.wait(2.5)
+
+            decompil += 1
+        end
         
-        return tbl
-    end,
-    Clipboard = getfenv().toclipboard or getfenv().setclipboard or function(text)
-        local ui = Instance.new("ScreenGui", game:GetService("CoreGui"))
-        task.delay(1, ui.Destroy, ui)
-        
-        local tb = Instance.new("TextBox", ui)
-        tb.Size = UDim2.fromOffset(1, 1)
-        tb.BackgroundTransparency = 1
-        tb.TextTransparency = 1
-        tb.Text = text
-        
-        tb:CaptureFocus()
+        page.Loading.Start.MouseButton1Click:Connect(start)
+    end)
 
-        for i=1, 2 do game:GetService("RunService").RenderStepped:Wait() end
-        pressKey(true, "LeftControl")
-        pressKey(true, "A")
-        pressKey(false, "A")
-        pressKey(true, "C")
-        pressKey(false, "C")
-        pressKey(false, "LeftControl")
-        
-        tb:ReleaseFocus()
-    end,
-    IsCSpy = function(self, obj)
-        return table.find(self.CSpyObjects, obj)
-    end,
-    AddButton = function(self, button)
-        local cont = button.Contents
-        local source = cont.BackgroundTransparency
-        local In = false
+    local clipboard = shared.Clipboard
 
-        button.MouseEnter:Connect(function()
-            In = true
-            cont.BackgroundTransparency = source + 0.025
-        end)
-        button.MouseLeave:Connect(function()
-            In = false
-            cont.BackgroundTransparency = source
-        end)
-        button.MouseButton1Down:Connect(function()
-            cont.BackgroundTransparency = source - 0.05
-        end)
-        button.MouseButton1Up:Connect(function()
-            cont.BackgroundTransparency = source + (In and 0.025 or 0)
-        end)
-        
-        return button
-    end
-}
+    cons[#cons + 1] = page.Contents.View.Editor.Back.MouseButton1Click:Connect(function()
+        page.Contents.View.ScanResults.Visible = true
+        page.Contents.View.Editor.Visible = false
+    end)
 
-shared:AddObject(shared.Connections)
-shared:AddObject(shared.Settings)
-shared:AddObject(shared.ToString)
-shared:AddObject(shared.CodeBox)
-shared:AddObject(shared.CSpyObjects)
+    cons[#cons + 1] = page.Contents.View.Editor.CopyPath.MouseButton1Click:Connect(function()
+        clipboard(path)
+    end)
 
-shared.HookFunction = require(script.Parent.HookFunction)(shared)
-shared.SidePanelEvent.Name = "SidePanel"
-shared.OnCloseEvent.Name = "OnClose"
+    cons[#cons + 1] = page.Contents.View.Editor.CopyCode.MouseButton1Click:Connect(function()
+        clipboard(codeBox.Text)
+    end)
 
-global[idx] = shared
+    cons[#cons + 1] = page.Contents.SearchBar.Field.TextBox.FocusLost:Connect(function()
+        local text = page.Contents.SearchBar.Field.TextBox.Text:lower()
 
-return shared
+        for _, v in logs do
+            v:Destroy()
+        end
+
+        table.clear(logs)
+
+        if text:gsub(" ", ""):gsub("\t", ""):gsub("\r", ""):gsub("\n", "") ~= "" then
+            local keywords = text:gsub("; ", ";"):split(";")
+            for scr in decompiled do
+                keywordScan(scr, keywords)
+            end
+        end
+    end)
+end
     end;
 
-    modules[objects["Instance14"]] = function()
-        local script = objects["Instance14"];
-local function normalize(str)
-    return (str:gsub("\n", "\\n"):gsub("\t", "\\t"):gsub("\r", "\\r"):gsub("\"", "\\\""):gsub("\0", "\\0"))
-end
-
-local function escapePattern(str)
-    return str:gsub("%%", "%%%%")
-        :gsub("%.", "%%.")
-        :gsub("%?", "%%?")
-        :gsub("%!", "%%!")
-        :gsub("%,", "%%,")
-        :gsub("%[", "%%[")
-        :gsub("%]", "%%]")
-        :gsub("%(", "%%(")
-        :gsub("%)", "%%)")
-        :gsub("%{", "%%{")
-        :gsub("%}", "%%}")
-end
-
-local alphabet = "QWERTYUIOPASDFGHJKLZXCVBNMqwertyuiopasdfghjklzxcvbnm_1234567890"
-local function isValidSymbol(s)
-    return alphabet:find(escapePattern(s)) ~= nil
-end
-
-local function isValidVariableName(var)
-    var = tostring(var)
-    if not var or tonumber(var:sub(1,1)) then
-        return false
-    end
-
-    for char in var:gmatch(".") do
-        if not isValidSymbol(char) then
-            return false
-        end
-    end
-
-    return true
-end
-
-local function getPath(obj, normalNil, dontGetService)
-    if not obj then
-        return "nil"
-    elseif obj == workspace.Parent or obj == game then
-        return "game"
-    elseif obj and not obj.Parent then
-        local env = getfenv()
-        local name = env.getnilinstances and "getnilinstances" or env.getnils and "getnils"
-        if not normalNil and name then
-            return ("(function()\n  local function getNil(objType, objName)\n    for _, v in %s() do\n      if v.ClassName == objType and v.Name == objName then\n        return v\n      end\n    end\n  end\n  return getNil(\"%s\", \"%s\")\nend)()")
-                :format(name, obj.ClassName, normalize(obj.Name))
-        elseif normalNil then
-            return "(nil)[\"" .. normalize(obj.Name) .. "\"]"
-        else
-            return "(nil)[\"" .. normalize(obj.Name) .. "\"] --[[ Object is parented to nil; getnilinstances does not exist ]]"
-        end
-    end
-
-    local path = ""
-    while obj.Parent do
-        if (obj.Parent == game or obj.Parent == workspace.Parent) and not dontGetService and pcall(game.GetService, game, obj.ClassName) and game:GetService(obj.ClassName) then
-            path = "game:GetService(\"" .. obj.ClassName:gsub(" ", "") .. "\")" .. path
-            break
-        elseif (obj.Parent == game or obj.Parent == workspace.Parent) and obj == workspace or obj == game:GetService("Workspace") then
-            path = "workspace" .. path
-            break
-        end
-
-        local siblings = obj.Parent:GetChildren()
-        local sameNameCount = 0
-        local index = nil
-
-        for i, v in siblings do
-            if v.Name == obj.Name then
-                sameNameCount = sameNameCount + 1
-                if v == obj then
-                    index = i
-                end
-            end
-        end
-
-        if sameNameCount > 1 and index and index ~= 1 and not dontGetService then
-            path = ":GetChildren()[" .. index .. "]" .. path
-        else
-            local notInstance = typeof(obj.Parent[obj.Name]) ~= "Instance"
-            if not isValidVariableName(obj.Name) or notInstance then
-                if notInstance then
-                    path = ":FindFirstChild(\"" .. normalize(obj.Name) .. "\")" .. path
-                else
-                    path = "[\"" .. normalize(obj.Name) .. "\"]"
-                end
-            else
-                path = "." .. obj.Name .. path
-            end
-        end
-
-        obj = obj.Parent
-    end
-
-    if not obj.Parent then
-        path = "game" .. path
-    end
-
-    return (path:gsub("game:GetService%(\"Workspace\"%)", "workspace"))
-end
-
-local http = game:GetService("HttpService")
-local tostr
-local function convertArg(arg, indent)
-    local t = typeof(arg)
-    if t == "string" then
-        local success, decoded = pcall(http.JSONDecode, http, arg)
-        if success and not tonumber(arg) then
-            return "game:GetService(\"HttpService\"):JSONEncode(" .. tostr(decoded) .. ")"
-        else
-            if #arg == 38 and arg:sub(1, 1) == "{" and arg:sub(-1) == "}" and arg:sub(10, 10) == "-" and arg:sub(15, 15) == "-" and arg:sub(20, 20) == "-" and arg:sub(25, 25) == "-" then
-                return "game:GetService(\"HttpService\"):GenerateGUID(true) --[[" .. arg .. "]]"
-            elseif #arg == 36 and arg:sub(9, 9) == "-" and arg:sub(14, 14) == "-" and arg:sub(19, 19) == "-" and arg:sub(24, 24) == "-" then
-                return "game:GetService(\"HttpService\"):GenerateGUID(false) --[[" .. arg .. "]]"
-            end
-            
-            return "\"" .. normalize(arg) .. "\""
-        end
-    elseif t == "number" then
-        if arg == math.huge then
-            return "math.huge"
-        elseif arg == -math.huge then
-            return "-math.huge"
-        elseif arg ~= arg then
-            return "(0 / 0) -- [[ nan ]]"
-        elseif math.abs(tick() - arg) <= 2.5 then
-            if math.floor(arg) == arg then
-                return "os.time() --[[" .. arg .. "]]"
-            else
-                return "tick() --[[" .. arg .. "]]"
-            end
-        elseif math.abs(workspace:GetServerTimeNow() - arg) <= 2.5 then
-            return "workspace:GetServerTimeNow() --[[" .. arg .. "]]"
-        elseif math.abs(os.clock() - arg) <= 2.5 then
-            return "os.clock() --[[" .. arg .. "]]"
-        elseif math.abs(time() - arg) <= 2.5 and math.floor(arg) ~= arg then
-            return "time() --[[" .. arg .. "]]"
-        end
-        
-        return tostring(arg)
-    elseif t == "boolean" or t == "nil" then
-        return tostring(arg)
-    elseif t == "Color3" then
-        local r255 = arg.R * 255
-        local g255 = arg.G * 255
-        local b255 = arg.B * 255
-
-        if math.abs(r255 - math.floor(r255 + 0.5)) < 1e-6 and math.abs(g255 - math.floor(g255 + 0.5)) < 1e-6 and math.abs(b255 - math.floor(b255 + 0.5)) < 1e-6 then
-            return string.format("Color3.fromRGB(%d, %d, %d)", math.round(r255), math.round(g255), math.round(b255))
-        else
-            return string.format("Color3.new(%f, %f, %f)", arg.R, arg.G, arg.B)
-        end
-    elseif t == "BrickColor" then
-        return "BrickColor.new(\"" .. arg.Name .. "\")"
-    elseif t == "UDim" then
-        if arg.Scale == 0 and arg.Offset == 0 then
-            return "UDim.new()"
-        end
-        return string.format("UDim.new(%f, %d)", arg.Scale, arg.Offset)
-    elseif t == "UDim2" then
-        if arg.X.Scale == 0 and arg.X.Offset == 0 and arg.Y.Scale == 0 and arg.Y.Offset == 0 then
-            return "UDim2.new()"
-        elseif arg.X.Scale == 0 and arg.Y.Scale == 0 then
-            return string.format("UDim2.fromOffset(%d, %d)", arg.X.Offset, arg.Y.Offset)
-        elseif arg.X.Offset == 0 and arg.Y.Offset == 0 then
-            return string.format("UDim2.fromScale(%f, %f)", arg.X.Scale, arg.Y.Scale)
-        else
-            return string.format("UDim2.new(%f, %d, %f, %d)", arg.X.Scale, arg.X.Offset, arg.Y.Scale, arg.Y.Offset)
-        end
-    elseif t == "Ray" then
-        return "Ray.new(" .. convertArg(arg.Origin, indent) .. ", " .. convertArg(arg.Direction, indent) .. ")"
-    elseif t == "EnumItem" then
-        return "Enum." .. arg.EnumType.Name .. "." .. arg.Name
-    elseif t == "Enum" then
-        return "Enum." .. arg.Name
-    elseif t == "NumberRange" then
-        return string.format("NumberRange.new(%f, %f)", arg.Min, arg.Max)
-    elseif t == "NumberSequenceKeypoint" then
-        return string.format("NumberSequenceKeypoint.new(%f, %f, %f)", arg.Time, arg.Value, arg.Envelope)
-    elseif t == "ColorSequenceKeypoint" then
-        return string.format("ColorSequenceKeypoint.new(%f, Color3.new(%f, %f, %f))", arg.Time, arg.Value.R, arg.Value.G, arg.Value.B)
-    elseif t == "PhysicalProperties" then
-        return string.format("PhysicalProperties.new(%f, %f, %f, %f, %f)", arg.Density, arg.Friction, arg.Elasticity, arg.FrictionWeight, arg.ElasticityWeight)
-    elseif t == "Rect" then
-        return string.format("Rect.new(Vector2.new(%f, %f), Vector2.new(%f, %f))", arg.Min.X, arg.Min.Y, arg.Max.X, arg.Max.Y)
-    elseif t == "Region3" then
-        return string.format("Region3.new(Vector3.new(%f, %f, %f), Vector3.new(%f, %f, %f))", arg.CFrame.Position.X, arg.CFrame.Position.Y, arg.CFrame.Position.Z, arg.CFrame.Position.X, arg.CFrame.Position.Y, arg.CFrame.Position.Z)
-    elseif t == "Region3int16" then
-        return string.format("Region3int16.new(Vector3int16.new(%d, %d, %d), Vector3int16.new(%d, %d, %d))", arg.Min.X, arg.Min.Y, arg.Min.Z, arg.Max.X, arg.Max.Y, arg.Max.Z)
-    elseif t == "TweenInfo" then
-        return string.format("TweenInfo.new(%f, Enum.EasingStyle.%s, Enum.EasingDirection.%s, %d, %s, %f)", arg.Time, arg.EasingStyle.Name, arg.EasingDirection.Name, arg.RepeatCount, tostring(arg.Reverses), arg.DelayTime)
-    elseif t == "function" then
-        return "function() end"
-    elseif t == "thread" then
-        return "coroutine.create(function() --[[ Unable to get content ]] end)"
-    elseif t == "userdata" then
-        return "newproxy()"
-    elseif t == "buffer" then
-        local s1 = buffer.tostring(arg)
-        local s2 = ""
-        local allZeros = true
-        
-        for i = 1, #s1 do
-            local v = s1:sub(i, i)
-            local byte = string.byte(v)
-            
-            if byte ~= 0 then
-                allZeros = false
-            end
-            
-            if byte <= 31 or byte >= 127 then
-                if byte == 10 then
-                    s2 ..= "\\n"
-                elseif byte == 13 then
-                    s2 ..= "\\r"
-                elseif byte == 9 then
-                    s2 ..= "\\t"
-                else
-                    s2 ..= "\\" .. byte
-                end
-            else
-                s2 ..= v:gsub("\"", "\\\"")
-            end
-        end
-        
-        if allZeros then
-            return "buffer.create(" .. #s1 .. ")"
-        end
-        
-        return "buffer.fromstring(\"" .. s2 .. "\")"
-    elseif t == "Instance" then
-        return getPath(arg)
-    elseif t == "table" then
-        return tostr(arg, indent)
-    else
-        local obj = getfenv()[t]
-
-        if typeof(obj) == "table" and obj.new then
-            if pcall(obj.new) and tostring(obj.new()) == tostring(arg) then
-                return t .. ".new()"
-            end
-
-            return t .. ".new(" .. tostring(arg) .. ")"
-        else
-            return "--[[ unknown type: " .. t .. "; values: " .. tostring(arg):gsub("%]%]", "] ]") .. " ]]"
-        end
-    end
-end
-
-local function isArray(tbl)
-    if typeof(tbl) ~= "table" then
-        return false
-    end
-    
-    local isArray = true
-    local allValid = true
-    local count = 0
-
-    for k in tbl do
-        if typeof(k) ~= "number" or math.floor(k) ~= k then
-            isArray = false
-            break
-        end
-
-        count = math.max(count, k)
-    end
-
-    if isArray then
-        isArray = #tbl == count
-        allValid = false
-
-        if isArray then
-            for i = 1, count do
-                if tbl[i] == nil then
-                    isArray = false
-                    break
-                end
-            end
-        end
-    else
-        for k in tbl do
-            if typeof(k) ~= "string" or not isValidVariableName(k) then
-                allValid = false
-                break
-            end
-        end
-    end
-    
-    return isArray, allValid, count
-end
-
-function tostr(tbl, indent)
-    indent = indent or 0
-    
-    local indentStr = string.rep("    ", math.max(indent, 0))
-    local indentStrNext = string.rep("    ", math.max(indent, 0) + 1)
-
-    if typeof(tbl) ~= "table" then
-        return convertArg(tbl, math.max(indent, 0))
-    end
-
-    local isArray, allValid, count = isArray(tbl)
-
-    if isArray then
-        if count == 0 then
-            return "{ }"
-        end
-
-        local result = "{" .. (indent == -1 and "" or " ")
-        for i = 1, count do
-            result ..= (indent == -1 and "\n" .. indentStrNext or "") .. tostr(tbl[i], math.max(indent, 0) + 1)
-            if i < count then
-                result ..= ","
-            end
-            result ..= indent == -1 and "" or " "
-        end
-
-        return result .. (indent == -1 and "\n" or "") .. "}"
-    else
-        local result = "{\n"
-        local first = true
-
-        for k, v in tbl do
-            if not first then
-                result ..= ",\n"
-            end
-
-            first = false
-            result ..= indentStrNext .. (allValid and k or "[" .. tostr(k, math.max(indent, 0) + 1) .. "]") .. " = " .. tostr(v, math.max(indent, 0) + 1)
-        end
-
-        return result .. "\n" .. indentStr .. "}"
-    end
-end
-
-local function createArgs(tbl)
-    local isArray = isArray(tbl)
-    local str = tostr(tbl)
-    
-    if isArray then
-        if #tbl == 0 then
-            return "()"
-        end
-        
-        return "(" .. str:sub(3):sub(1, #str - 4) .. ")"
-    else
-        return (("(" .. str .. ")"):gsub("%(nil%)", "()"))
-    end
-end
-
-return {
-    ToString = tostr,
-    CreateArguments = createArgs,
-    EscapePattern = escapePattern,
-    GetPath = getPath
-}
-    end;
-
-    modules[objects["Instance9"]] = function()
-        local script = objects["Instance9"];
+    modules[objects["Instance11"]] = function()
+        local script = objects["Instance11"];
 return function(shared, page)
     local ui = page:FindFirstAncestorOfClass("ScreenGui")
     local cons = shared.Connections
@@ -3815,8 +4449,10 @@ return function(shared, page)
             selection[1] = event
             selection[2] = args
             selection[3] = got
-	    selection[4] = caller
-	    
+            selection[4] = caller
+            
+            print(selection[4])
+            
             codeBox.Text = sArgs
         end)
         
@@ -4168,162 +4804,8 @@ return function(shared, page)
 end
     end;
 
-    modules[objects["Instance5"]] = function()
-        local script = objects["Instance5"];
-local tweenService = game:GetService("TweenService")
-local http = game:GetService("HttpService")
-
-local event = Instance.new("BindableEvent", script)
-event.Name = "SettingChange"
-
-local metatable
-
-local settings = {
-    {"SEPARATOR", "UI Settings"},
-    {"Transparent", false, function(state)
-        tweenService:Create(script.Parent.Parent.Main, TweenInfo.new(1), {BackgroundTransparency = not state and 0 or metatable.Has_shadow and 0.2 or 0.05}):Play()
-    end},
-    {"Rounded_corners", false, function(state)
-        tweenService:Create(script.Parent.Parent.Main.UICorner, TweenInfo.new(1), {CornerRadius = UDim.new(state and 0.025 or 0.01)}):Play()
-    end},
-    {"Always_show_side_panel", {1, 1, 3}, function(state, instance)
-        if instance then
-            instance.Label.Text = state == 1 and "Dynamic side panel" or state == 2 and "Never show side panel" or "Always show side panel"
-        end
-    end},
-    {"Window_scale", {100, 75, 155}},
-    {"SEPARATOR", "UI Shadow Settings"},
-    {"Has_shadow", true, function(state)
-        metatable.Transparent = metatable.Transparent
-        tweenService:Create(script.Parent.Parent.Shadow, TweenInfo.new(state and 0.75 or 1.25), {ImageTransparency = state and 0.2 or 1}):Play()
-    end},
-    {"Shadow_centered", false, function(state)
-        script.Parent.Parent.Shadow:TweenPosition(state and UDim2.fromScale(0.5, 0.5) or UDim2.fromScale(0.515, 0.525), Enum.EasingDirection.Out, Enum.EasingStyle.Quad, 0.5, true)
-    end},
-    {"SEPARATOR", "Log Settings"},
-    {"Log_executor_function_calls", {1, 1, 3}, function(state, instance)
-        if instance then
-            instance.Label.Text = state == 1 and "Log calls called only by game scripts" or state == 2 and "Log calls called by game & executor scripts" or "Log calls called only by executor scripts"
-        end
-    end},
-    {"Create_arguments_as_variable", false},
-    {"Create_event_as_variable", false},
-    {"Maximum_log_amount", {10, 0, 20}, function(state, instance)
-        if instance then
-            instance.Label.Text = "Maximum log amount [ " .. math.max(1, state * 5) .. " ]"
-        end
-    end},
-    {"Decompile_limit", {1, 1, 50}, function(state, instance)
-        if instance then
-            instance.Label.Text = "Decompile limit [ " .. state .. " / 50 scripts at the same time ]"
-        end
-    end},
-    {"Ignore_spammy_logs", true}
-}
-
-local function find(index)
-    for _, v in settings do
-        if v[1] == index then
-            return v
-        end
-    end
-    return nil
-end
-
-local files = getfenv().writefile and getfenv().readfile and getfenv().makefolder
-metatable = setmetatable({ }, {
-    __index = function(self, index)
-        index = index:sub(1,1):upper() .. index:sub(2)
-
-        if index == "Values" then
-            local vals = { }
-            
-            for _, v in settings do
-                vals[#vals+1] = { v[1], v[2] }
-            end
-            
-            return vals
-        elseif index == "Event" or index == "Signal" or index == "Changed" then
-            return event.Event
-        elseif index == "Find" then
-            return find
-        else
-            local setting = find(index)
-            if setting then
-                return typeof(setting[2]) == "table" and setting[2][1] or setting[2]
-            else
-                error("Unable to get value for setting: " .. tostring(index), 0)
-            end
-        end
-    end,
-    __newindex = function(self, index, value)
-        index = index:sub(1, 1):upper() .. index:sub(2)
-        local setting = find(index)
-        assert(setting, "Setting not found: " .. tostring(index))
-        assert(typeof(value) == typeof(setting[2]) or typeof(value) == "number" and typeof(setting[2]) == "table", ("Type mismatch for setting %s: expected %s got %s"):format(index, typeof(setting[2]), typeof(value)))
-
-        local val = typeof(value) == "table" and value[1] or value
-
-        setting[2] = value
-        event:Fire(index, val)
-
-        if setting[3] then
-            task.spawn(setting[3], val, setting[4])
-        end
-        
-        local auto = find("Auto_load_settings")
-        if auto and auto[2] then
-            if files then
-                local saveFile = { }
-                for _, v in self.Values do
-                    local i = v[1]
-                    local v = v[2]
-
-                    if i ~= "SEPARATOR" then
-                        saveFile[i] = v
-                    end
-                end
-
-                task.spawn(getfenv().writefile, "CDT/Settings.json", http:JSONEncode(saveFile))
-            end
-        end
-    end
-})
-
-if files then
-    getfenv().makefolder("CDT")
-    getfenv().writefile("CDT/CSpy.txt", "Yeah, If you wonder what CDT is, it is CSpy")
-
-    table.insert(settings, 1, {"Auto_load_settings", false, function(state)
-        task.spawn(getfenv().writefile, "CDT/Settings.bool", state and "1" or "0")
-
-        if state then
-            local success, json = pcall(getfenv().readfile, "CDT/Settings.json")
-            if success then
-                for index, value in http:JSONDecode(json) do
-                    if index ~= "Auto_load_settings" then
-                        metatable[index] = typeof(value) == "table" and value[1] or value
-                    end
-                end
-            end
-        end
-    end})
-    
-    table.insert(settings, 1, {"SEPARATOR", "Saves"})
-    
-    local success, value = pcall(getfenv().readfile, "CDT/Settings.bool")
-    if success then
-        task.delay(5, function()
-            metatable.Auto_load_settings = value == "1"
-        end)
-    end
-end
-
-return metatable
-    end;
-
-    modules[objects["Instance7"]] = function()
-        local script = objects["Instance7"];
+    modules[objects["Instance9"]] = function()
+        local script = objects["Instance9"];
 return function(shared, page)
     local settings = shared.Settings
     local cons = shared.Connections
@@ -4456,435 +4938,93 @@ return function(shared, page)
 end
     end;
 
-    modules[objects["Instance10"]] = function()
-        local script = objects["Instance10"];
-return function(shared, page)
-    local cons = shared.Connections
-    local hooks = shared.HookFunction -- custom safe hooks
-    local settings = shared.Settings
+    modules[objects["Instance7"]] = function()
+        local script = objects["Instance7"];
+return function(shared)
+    local onClose = shared.OnCloseEvent.Event
+    local hooks = shared:AddObject({ })
 
-    local logExample = page.Logs.Log
-    logExample.Visible = false
+    onClose:Connect(function()
+        for _, v in hooks do
+            if v[1] == "F" then
+                getfenv().hookfunction(v[2], v[3])
+            else
+                getfenv().hookmetamethod(game, v[2], v[3])
+            end
+        end
+    end)
 
-    local methodColors = {
-        ["GET"] = Color3.fromRGB(85, 255, 127),
-        ["POST"] = Color3.fromRGB(85, 255, 255),
-        ["PUT"] = Color3.fromRGB(200, 200, 200),
-        ["DELETE"] = Color3.fromRGB(255, 0, 0),
-        ["HEADERS"] = Color3.fromRGB(255, 170, 127),
-        ["TRACE"] = Color3.fromRGB(255, 0, 127),
-        ["OPTIONS"] = Color3.fromRGB(100, 100, 100),
-        ["PATCH"] = Color3.fromRGB(170, 170, 0),
-        ["HEAD"] = Color3.fromRGB(85, 85, 127),
-        ["Unknown"] = Color3.fromRGB(85, 0, 255),
-    }
+    local function isc(f)
+        return (getfenv().iscclosure and getfenv().iscclosure(f) or not getfenv().iscclosure) and debug.info(f, "s") == "[C]" and (debug.getinfo and debug.getinfo(f).what == "C" and debug.getinfo(f).source:match("%[C%]") or not debug.getinfo)
+    end
 
-    local function surl(url)
-        local s1 = url:split("://")
-        local protocol = s1[1]
-        local page = (s1[2] or "unknown"):split("/")[1]:split(".")
-        local shortUrl = ""
+    local function newc(closure)
+        return getfenv().newcclosure and getfenv().newcclosure(closure) or getfenv().clonefunction and getfenv().clonefunction(closure) or function(...) return closure(...) end
+    end
+    local function newl(closure)
+        local cloned = getfenv().clonefunction and getfenv().clonefunction(function(...) return closure(...) end) or function(...) return closure(...) end
+        return function(...) return cloned(...) end
+    end
 
-        if #page > 1 then
-            shortUrl = page[#page - 1] .. "." .. page[#page]
+    local function safeClosure(original, hooked)
+        if isc(original) then
+            return newc(newl(hooked))
         else
-            shortUrl = page[1] or "unknown"
-        end
-
-        return protocol, shortUrl
-    end
-
-    local order = ((2 ^ 31) - 1)
-    local selection = shared:AddObject({ })
-    local ignore = shared:AddObject({ })
-    local logSpeed = shared:AddObject({ })
-    local logs = shared:AddObject({ })
-    local limit = 4
-
-    local codeBox = shared.CodeBox(page.TextBox, shared.UseEnv)
-    codeBox.Text = "Welcome to Ketamine - HTTP Spy!\n-- Waiting for HTTP requests --"
-
-    local function addLog(realUrl, method, func, headers, body, result)
-        realUrl = realUrl:gsub("\\", "/")
-
-        local success, protocol, url = pcall(surl, realUrl)
-        if not success then
-            protocol = "unknown"
-            url = realUrl
-        end
-        
-        if ignore[url] or settings.Ignore_spammy_logs and (tonumber(logSpeed[url]) or 0) > limit then return end
-
-        local log = shared:AddButton(logExample:Clone())
-        log.Parent = page.Logs
-        log.Visible = true
-
-        table.insert(logs, 1, log)
-        while #logs > math.max(settings.Maximum_log_amount * 5, 1) do
-            local log = table.remove(logs, #logs)
-            log:Destroy()
-        end
-
-        local shortUrl = url
-        if #shortUrl > 13 then
-            shortUrl = shortUrl:sub(1, 11) .. "..."
-        end
-
-        log.Contents.Label.Text = shortUrl
-        log.LayoutOrder = order
-        log.Contents.Frame.BackgroundColor3 = methodColors[method] or methodColors.Unknown
-        log.Contents.Type.BackgroundColor3 = protocol == "http" and Color3.fromRGB(255, 85, 127) or protocol ~= "https" and Color3.fromRGB(85, 85, 255) or Color3.new()
-        if protocol ~= "https" then
-            log.Contents.Type.Visible = true
-        end
-
-        cons[#cons + 1] = log.MouseButton1Click:Connect(function()
-            for _, log in logs do
-                if log and log.Parent then
-                    log.Contents.Selection.BackgroundTransparency = 1
-                end
-            end
-
-            log.Contents.Selection.BackgroundTransparency = 0.9
-
-            selection[1] = realUrl
-            selection[2] = url
-            selection[3] = protocol
-            selection[4] = func
-            selection[5] = method
-            selection[6] = headers
-            selection[7] = body
-            selection[8] = result
-
-            local s = url:split("/")
-
-            codeBox.Text = "Method: " .. (method or "Unknown") .. "\nProtocol: " .. (protocol or "Unknown") .. "\nUrl: \"" .. s[1] .. "\"\n" .. (s[2] and "Path: \"" .. table.concat(s, "/", 2) .. "\"\n" or "") .. "Function: " .. func .. "\n\n-- Click buttons under to get more info --"
-        end)
-
-        order -= 1
-    end
-
-    local hooksAvailable = type(getfenv().hookmetamethod) == "function"
-        and type(getfenv().hookfunction) == "function"
-        and type(getfenv().getnamecallmethod) == "function"
-
-    local http = game:GetService("HttpService")
-
-    local genv = (getfenv().getgenv or getfenv)()
-    if hooksAvailable then
-        task.spawn(function()
-            if genv.request then
-                hooks.HookFunction(genv.request, function(old, options)
-                    local result = shared:AddObject({ })
-                    task.spawn(addLog, options.Url, options.Method or "GET", "request", options.Headers, options.Body, result)
-
-                    result[1] = old(options)
-                    return result[1]
-                end)
-            end
-
-            local getnamecall = getfenv().getnamecallmethod
-
-            hooks.HookMetaMethod("__namecall", function(old, self, ...)
-                if typeof(self) ~= "Instance" then
-                    return old(self, ...)
-                end
-
-                local method = getnamecall()
-                method = method:sub(1, 1):upper() .. method:sub(2)
-
-                if self == game and (method == "HttpGet" or method == "HttpGetAsync") then -- I've planned to add support for RequestInternal and requests from HttpService, but nah
-                    local result = shared:AddObject({ })
-                    task.spawn(addLog, select(1, ...), "GET", "game:HttpGet", select(3, ...), nil, result)
-
-                    result[1] = old(self, ...)
-                    return result[1]
-                elseif self == game and (method == "HttpPost" or method == "HttpPostAsync") then
-                    local result = shared:AddObject({ })
-                    task.spawn(addLog, select(1, ...), "POST", "game:HttpPost", select(5, ...), select(2, ...), result)
-
-                    result[1] = old(self, ...)
-                    return result[1]
-                end
-
-                return old(self, ...)
-            end)
-        end)
-    else
-        local originalReq = genv.request
-        if originalReq then
-            genv.request = function(options)
-                local result = shared:AddObject({ })
-                task.spawn(addLog, options.Url, options.Method, "request", options.Headers, options.Body, result)
-
-                result[1] = originalReq(options)
-                return result[1]
-            end
-
-            shared.OnCloseEvent:Connect(function()
-                genv.request = originalReq
-            end)
+            return newl(newc(hooked))
         end
     end
-
-    local button = page.Buttons.Button
-    button.Visible = false
-
-    local function addButton(text, callback)
-        local button = button:Clone()
-        button.Parent = page.Buttons
-        button.Visible = true
-        button.Name = text
-
-        if typeof(text) == "string" and text ~= "" then
-            shared:AddButton(button)
-
-            button.Separator:Destroy()
-            button.Contents.Label.Text = text
-            cons[#cons + 1] = button.MouseButton1Click:Connect(function()
-                callback(button)
-            end)
-        else
-            button.Contents:Destroy()
-            button.Separator.Visible = true
-        end
-
-        return button
-    end
-
-    local clipboard = shared.Clipboard
-    addButton("Copy text to clipboard", function()
-        clipboard(codeBox.Text)
-    end)
-
-    addButton("Copy url to clipboard", function()
-        if selection[1] then
-            clipboard(selection[1])
-        end
-    end)
-
-    addButton("Clear logs", function()
-        for _, log in logs do
-            log:Destroy()
-        end
-
-        table.clear(logs)
-    end)
-
-    addButton("Get request headers", function()
-        if selection[6] then
-            codeBox.Text = shared.ToString.ToString(selection[6])
-        end
-    end)
-    addButton("Get request body", function()
-        if selection[7] then
-            codeBox.Text = shared.ToString.ToString(selection[7])
-        end
-    end)
-    addButton("Get request result", function()
-        if selection[8] and selection[8][1] then
-            codeBox.Text = typeof(selection[8][1]) ~= "string" and shared.ToString.ToString(selection[8][1]) or selection[8][1]
-        end
-    end)
-    addButton("Get body as lua table", function()
-        if selection[7] then
-            codeBox.Text = shared.ToString.ToString(http:JSONDecode(selection[7]))
-        end
-    end)
-end
-    end;
-
-    modules[objects["Instance11"]] = function()
-        local script = objects["Instance11"];
-return function(shared, page)
-    local cons = shared.Connections
-    local hooks = shared.HookFunction -- custom safe hooks
-    local settings = shared.Settings
-
-    local codeBox = shared.CodeBox(page.Contents.View.Editor.TextBox, shared.UseEnv)
-    codeBox.Text = ""
-
-    local gsbc = getfenv().getscriptbytecode or function(scr)
-        return "\0"
-    end
-
-    local badDecompile = function(scr)
-        return-- scr.Name .. " " ..
-            "-- \"decompile\" does not exist or failed"
-    end
-
-    local _decompile = getfenv().decompile or badDecompile
-    local decompiling = 0
     
-    local decompile = function(scr)
-        while task.wait() do
-            if decompiling <= settings.Decompile_limit then
-                decompiling += 1
-                local decompiled = _decompile(scr)
-                decompiling -= 1
-                
-                return decompiled
+    local loggedMetaMethod = false
+    return shared:AddObject({
+        HookFunction = function(target, new)
+            local old
+            local function hooked(...)
+                return new(old, ...)
             end
-        end
-    end
 
-    local decompiled = { }
-    local scripts, decompil = 1, 0
+            old = getfenv().hookfunction(target, safeClosure(target, hooked))
+            table.insert(hooks, shared:AddObject({ "F", target, old }))
 
-    local stuff = {
-        ModuleScript = {
-            Color3.fromRGB(165, 105, 255),
-            "rbxassetid://72574623675660"
-        },
-
-        LocalScript = {
-            Color3.fromRGB(43, 177, 255),
-            "rbxassetid://120549633847891"
-        }
-    }
-
-    local log = page.Contents.View.ScanResults.List.Log
-
-    task.spawn(function()
-        while scripts ~= decompil do
-            local max = math.max(#tostring(scripts), #tostring(decompil))
-            page.Loading.TextLabel.Text = "[ " .. string.format("%0" .. max .. "d", scripts) .. " / " .. string.format("%0" .. max .. "d", decompil) .. " ] The tool is loading..."
-            page.Loading.CanvasGroup.Frame.Position = UDim2.fromScale((decompil / scripts) - 1, 0)
-
-            task.wait()
-        end
-
-        page.Loading:TweenPosition(UDim2.fromScale(0, 1), nil, nil, 1, true)
-        page.Contents:TweenSize(UDim2.fromScale(1, 1), nil, nil, 1, true)
-
-        task.wait(1)
-
-        page.Loading:Destroy()
-    end)
-
-    local path
-    local logs = { }
-
-    local function keywordScan(scr, keywords)
-	local path = scr:IsDescendantOf(game) and "game." .. scr:GetFullName() or "(nil)[\"" .. scr.Name:gsub("\"", "\\\"") .. "\")"
-        local src = path .. "\n" decompiled[scr]:lower()
-        local matches = 0
-
-        for _, keyword in keywords do
-            matches += (#src:split(keyword)) - 1
-        end
-
-        if matches > 0 then
-            local tbl = (stuff[scr.ClassName] or stuff.LocalScript)
-            local log = shared:AddButton(log:Clone())
-            log.Parent = page.Contents.View.ScanResults.List
-            log.Visible = true
-            log.Contents.ScriptName.Text = scr.Name
-            log.Contents.ScriptPath.Text = path
-            log.Contents.Matches.Text = matches
-            log.LayoutOrder = matches
-            log.Contents.Matches.TextColor3 = tbl[1]
-            log.Contents.Icon.Image = tbl[2]
-            logs[#logs + 1] = log
-
-            cons[#cons + 1] = log.MouseButton1Click:Connect(function()
-                page.Contents.View.ScanResults.Visible = false
-                page.Contents.View.Editor.Visible = true
-
-                codeBox.Text = decompiled[scr]
-                path = log.Contents.ScriptPath.Text
-            end)
-
-            cons[#cons + 1] = scr.Destroying:Connect(function()
-                table.remove(logs, table.find(logs, log))
-                log:Destroy()
-            end)
-        end
-    end
-
-    task.spawn(function()
-        local function dec(scr)
-            if not scr:IsDescendantOf(game:GetService("CoreGui")) and not scr:IsDescendantOf(game:GetService("CorePackages")) and not scr:IsDescendantOf(workspace) and not scr:IsDescendantOf(game:GetService("StarterGui")) and (scr:IsA("LocalScript") or scr:IsA("ModuleScript") or scr:IsA("Script") and scr.RunContext == Enum.RunContext.Client) and not decompiled[scr] and #gsbc(scr) ~= 0 then
-                scripts += 1
-                local decompi = decompile(scr)
-                decompiled[scr] = decompi
-                decompil += 1
-
-                local text = page.Contents.SearchBar.Field.TextBox.Text:lower()
-
-                if text:gsub(" ", ""):gsub("\t", ""):gsub("\r", ""):gsub("\n", "") ~= "" then
-                    keywordScan(scr, text:gsub("; ", ";"):split(";"))
+            return target -- we don't need to slide the old function
+        end,
+        UnHookFunction = function(target)
+            while true do
+                local found = false
+                for idx, hook in hooks do
+                    if hook[1] == "F" and hook[2] == target then
+                        found = idx
+                        break
+                    end
+                end
+                
+                if found then
+                    local found = table.remove(hooks, found)
+                    getfenv().hookfunction(found[2], found[3])
+                else
+                    break
                 end
             end
-        end
-
-        for i, v in (getfenv().getnilinstances and getfenv().getnilinstances() or { }) do
-            task.spawn(dec, v)
-
-            if i % 350 == 0 then
-                task.wait()
+        end,
+        HookMetaMethod = function(method, new)
+            local old
+            local function hooked(...)
+                return new(old, ...)
             end
-        end
-
-        for i, v in (getfenv().getinstances and getfenv().getinstances() or { }) do
-            task.spawn(dec, v)
-
-            if i % 350 == 0 then
-                task.wait()
+            
+            old = getfenv().hookmetamethod(game, method, safeClosure(pcall, hooked)) -- used pcall as random C closure; pcall was not affected
+            if not loggedMetaMethod then
+                loggedMetaMethod = true
+                table.insert(hooks, shared:AddObject({ "MM", method, old }))
             end
+            
+            -- we don't need to return function
         end
-
-        for i, v in game:GetDescendants() do
-            task.spawn(dec, v)
-
-            if i % 350 == 0 then
-                task.wait()
-            end
-        end
-
-        cons[#cons + 1] = game.DescendantAdded:Connect(dec)
-
-        task.wait(2.5)
-
-        decompil += 1
-    end)
-
-    local clipboard = shared.Clipboard
-
-    cons[#cons + 1] = page.Contents.View.Editor.Back.MouseButton1Click:Connect(function()
-        page.Contents.View.ScanResults.Visible = true
-        page.Contents.View.Editor.Visible = false
-    end)
-
-    cons[#cons + 1] = page.Contents.View.Editor.CopyPath.MouseButton1Click:Connect(function()
-        clipboard(path)
-    end)
-
-    cons[#cons + 1] = page.Contents.View.Editor.CopyCode.MouseButton1Click:Connect(function()
-        clipboard(codeBox.Text)
-    end)
-
-    cons[#cons + 1] = page.Contents.SearchBar.Field.TextBox.FocusLost:Connect(function()
-        local text = page.Contents.SearchBar.Field.TextBox.Text:lower()
-
-        for _, v in logs do
-            v:Destroy()
-        end
-
-        table.clear(logs)
-
-        if text:gsub(" ", ""):gsub("\t", ""):gsub("\r", ""):gsub("\n", "") ~= "" then
-            local keywords = text:gsub("; ", ";"):split(";")
-            for scr in decompiled do
-                keywordScan(scr, keywords)
-            end
-        end
-    end)
+    })
 end
     end;
 
-    modules[objects["Instance13"]] = function()
-        local script = objects["Instance13"];
+    modules[objects["Instance5"]] = function()
+        local script = objects["Instance5"];
 local Lib = {}
 local function getFunc(name)
     return getfenv()[name]
@@ -6894,98 +7034,14 @@ return function(textbox,env)
     })
 end
     end;
-
-    modules[objects["Instance15"]] = function()
-        local script = objects["Instance15"];
-return function(shared)
-    local onClose = shared.OnCloseEvent.Event
-    local hooks = shared:AddObject({ })
-
-    onClose:Connect(function()
-        for _, v in hooks do
-            if v[1] == "F" then
-                getfenv().hookfunction(v[2], v[3])
-            else
-                getfenv().hookmetamethod(game, v[2], v[3])
-            end
-        end
-    end)
-
-    local function isc(f)
-        return (getfenv().iscclosure and getfenv().iscclosure(f) or not getfenv().iscclosure) and debug.info(f, "s") == "[C]" and (debug.getinfo and debug.getinfo(f).what == "C" and debug.getinfo(f).source:match("%[C%]") or not debug.getinfo)
-    end
-
-    local function newc(closure)
-        return getfenv().newcclosure and getfenv().newcclosure(closure) or getfenv().clonefunction and getfenv().clonefunction(closure) or function(...) return closure(...) end
-    end
-    local function newl(closure)
-        local cloned = getfenv().clonefunction and getfenv().clonefunction(function(...) return closure(...) end) or function(...) return closure(...) end
-        return function(...) return cloned(...) end
-    end
-
-    local function safeClosure(original, hooked)
-        if isc(original) then
-            return newc(newl(hooked))
-        else
-            return newl(newc(hooked))
-        end
-    end
-    
-    local loggedMetaMethod = false
-    return shared:AddObject({
-        HookFunction = function(target, new)
-            local old
-            local function hooked(...)
-                return new(old, ...)
-            end
-
-            old = getfenv().hookfunction(target, safeClosure(target, hooked))
-            table.insert(hooks, shared:AddObject({ "F", target, old }))
-
-            return target -- we don't need to slide the old function
-        end,
-        UnHookFunction = function(target)
-            while true do
-                local found = false
-                for idx, hook in hooks do
-                    if hook[1] == "F" and hook[2] == target then
-                        found = idx
-                        break
-                    end
-                end
-                
-                if found then
-                    local found = table.remove(hooks, found)
-                    getfenv().hookfunction(found[2], found[3])
-                else
-                    break
-                end
-            end
-        end,
-        HookMetaMethod = function(method, new)
-            local old
-            local function hooked(...)
-                return new(old, ...)
-            end
-            
-            old = getfenv().hookmetamethod(game, method, safeClosure(pcall, hooked)) -- used pcall as random C closure; pcall was not affected
-            if not loggedMetaMethod then
-                loggedMetaMethod = true
-                table.insert(hooks, shared:AddObject({ "MM", method, old }))
-            end
-            
-            -- we don't need to return function
-        end
-    })
-end
-    end;
 end;
 
 -- Set scripts
 do
-    task.spawn(function() -- Instance4
+    task.spawn(function() -- Instance2
 if not game:GetService("RunService"):IsClient() then return end
-local script = objects["Instance4"];
+local script = objects["Instance2"];
+print("loading", script)
 script:FindFirstAncestorOfClass("ScreenGui").Parent = getfenv().gethui and getfenv().gethui() or pcall(game.GetFullName, game:GetService("CoreGui")) and game:GetService("CoreGui") or game:GetService("Players").LocalPlayer:WaitForChild("PlayerGui", 9e9)
 script:FindFirstAncestorOfClass("ScreenGui").Enabled = true
 pcall(function()
@@ -7314,3 +7370,7 @@ task.spawn(function()
 end)
     end);
 end;
+
+-- YOUR CODE DOWN HERE --
+
+local obj = objects["Instance0"];
