@@ -2948,7 +2948,7 @@ return function(shared, page)
     end)
 
     addButton("Generate code", function()
-        codeBox.Text = "local result = request({ -- " .. selection[4] .. "\n\t[\"Url\"] = \"" .. selection[1] .. "\",\n\t[\"Method\"] = \"" .. selection[5] .. "\",\n\t[\"Headers\"] = " .. shared.ToString.ToString(selection[6], 1) .. "\",\n\t[\"Body\"] = " .. shared.ToString.ToString(selection[7], 1) .. "\n})"
+        codeBox.Text = "local result = request({ -- " .. selection[4] .. "\n\t[\"Url\"] = \"" .. selection[1] .. "\",\n\t[\"Method\"] = \"" .. selection[5] .. "\",\n\t[\"Headers\"] = " .. shared.ToString.ToString(selection[6], 1) .. ",\n\t[\"Body\"] = " .. shared.ToString.ToString(selection[7], 1) .. "\n})"
     end)
 end
     end;
